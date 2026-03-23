@@ -43,10 +43,10 @@ export default function Welcome() {
                 <Box component={'img'} src="/MiTienditaLogo.png" alt="Logo Mi Tiendita" sx={{width:'400px', height:'400px', mt:6}}/>
             </Box>
             <Box display={'flex'} justifyContent={'center'}>
-                <Typography variant="h1" color="#ffffff" fontFamily={'Poppins'} sx={{fontWeight:'bold', mt:6}}>Bienvenido A Mi Tiendita</Typography>
+                <Typography variant="h1" color="#ffffff" fontFamily={'system-ui'} sx={{fontWeight:'bold', mt:6}}>Bienvenido A Mi Tiendita</Typography>
             </Box>
             <Box display={'flex'} justifyContent={'center'} sx={{mt:6}}>
-                <Button variant="contained" onClick={handleLogin} size="large" sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'Poppins', width: '200px', fontSize:'20px', fontWeight:'bold', borderRadius: '50px' }} >Continuar</Button>
+                <Button variant="contained" onClick={handleLogin} size="large" sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '200px', fontSize:'20px', fontWeight:'bold', borderRadius: '50px' }} >Continuar</Button>
             </Box>
         </Box>
     )

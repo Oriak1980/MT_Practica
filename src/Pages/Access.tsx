@@ -1,9 +1,11 @@
 import { PinInput } from "@chakra-ui/react";
-import { Box, Button, Card, Typography } from "@mui/material";
+import { Box, Button, Card, Checkbox, FormControlLabel, IconButton, TextField, Typography } from "@mui/material";
+import { useState } from "react";
 import { useNavigate } from "react-router";
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 
 
-export default function Login() {
+export default function Access() {
     const navigate = useNavigate();
     const circles = [
         { top: '20px', left: '10%', size: 40, color: '#D04234', img: 'null' },
@@ -30,23 +32,30 @@ export default function Login() {
         { top: '780px', left: '50%', size: 30, color: '#D04234', img: 'null' },
         { top: '850px', left: '75%', size: 40, color: '#C29B33', img: 'null' },
     ];
+    const [checked, setChecked] = useState(false);
+
+    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
+    }
 
     return (
         <Box sx={{ minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Card variant="outlined" sx={{ zIndex: 10, backgroundColor: '#fffff', position: 'relative', gap: 3, borderRadius: '20px', display: 'flex', flexDirection: 'column', padding: 2, }}>
+            <Card variant="outlined" sx={{ zIndex: 10, backgroundColor: '#fffff', position: 'relative', gap: 3, borderRadius: '20px', display: 'flex', flexDirection: 'column', padding: 2, width: '500px' }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', gap: 2 }}>
                     <Box component={'img'} src="/MiTienditaLogo.png" alt="Logo Mi Tiendita" sx={{ width: '80px', height: '80px', }} />
                     <Box component={'img'} src="/logo_anpec.png" alt="Logo Mi Tiendita" sx={{ width: '250px', height: '80px' }} />
                 </Box>
                 <Box display={'flex'} justifyContent={'center'}>
-                    <Box component={'img'} src="/LogoIniciarSesion.jpeg" alt="Imagen de Inicio de Sesión" sx={{ width: '250px', height: '250px' }} />
+                    <Box component={'img'} src="/AccesoLogo.jpeg" alt="Imagen de Inicio de Sesión" sx={{ width: '250px', height: '250px' }} />
                 </Box>
                 <Box display={'flex'} justifyContent={'center'} flexDirection={'row'} gap={2} sx={{ position: 'relative', zIndex: 10 }}>
-                    <Typography variant="h5" color="#D04234" fontWeight={'bold'} fontFamily={'system-ui'} zIndex={10}>INICAR SESIÓN</Typography>
+                    <Typography variant="h5" color="#D04234" fontWeight={'bold'} fontFamily={'system-ui'} zIndex={10}>ACCESO</Typography>
                 </Box>
                 <Box display={'flex'} flexDirection={'column'} gap={2} sx={{ zIndex: 10, alignItems: 'center' }}>
-                    <Typography variant="h6" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'} zIndex={10}>Ingresa el código de tu tienda</Typography>
-                    <PinInput.Root placeholder="" type="alphanumeric">
+                    <Typography variant="h6" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'} zIndex={10}>Ingresa tu usuario</Typography>
+                    <TextField variant="outlined" sx={{ width: '85%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: '#D04234', borderRadius: '30px', color: '#D04234' }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box' } } }} />
+                    <Typography variant="h6" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'} zIndex={10}>Coloca tu PIN asignado</Typography>
+                    <PinInput.Root placeholder="">
                         <PinInput.HiddenInput />
                         <PinInput.Control>
                             <PinInput.Input index={0} style={{ backgroundColor: '#ffff', zIndex: 10, borderColor: '#D04234', borderRadius: '10px', fontFamily: 'system-ui', color: '#D04234', fontSize: '16px' }} />
@@ -57,8 +66,32 @@ export default function Login() {
                             <PinInput.Input index={5} style={{ backgroundColor: '#ffff', zIndex: 10, borderColor: '#D04234', borderRadius: '10px', fontFamily: 'system-ui', color: '#D04234', fontSize: '16px' }} />
                         </PinInput.Control>
                     </PinInput.Root>
-                    <Typography variant="subtitle2" color="#000000" fontWeight={450} fontFamily={'system-ui'} fontStyle={'italic'} zIndex={10}>Puedes consultar el código de tu tienda desde le email que registraste</Typography>
-                    <Button variant="contained" size="large" onClick={() => navigate('/access')} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '200px', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }} >Continuar</Button>
+                    <Box display={'flex'} justifyContent={'flex-start'} flexDirection={'row'} gap={1} sx={{ borderRadius: '20px', border: 'solid 2px #C29B33', width: '85%', alignItems: 'center' }}>
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={checked}
+                                    onChange={handleCheckboxChange}
+                                    sx={{
+                                        color: '#D04234',
+                                        '&.Mui-checked': {
+                                            color: '#D04234',
+                                        },
+                                        ml: 2,
+                                    }}
+                                />
+                            }
+                            label={
+                                <Typography variant="subtitle2" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'}>
+                                    Recordar accesos
+                                </Typography>
+                            }
+                        />
+                    </Box>
+                    <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} sx={{width:'100%'}}>
+                        <IconButton onClick={()=>navigate('/login')} size="large" sx={{backgroundColor: '#D04234', color: '#ffffff', '&:hover':{backgroundColor: '#d3685e'}}}><ArrowBackRoundedIcon /></IconButton>
+                        <Button variant="contained" size="large" onClick={()=>navigate('/')} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '200px', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }} >Iniciar Sesión</Button>
+                    </Box>
                 </Box>
             </Card>
             {circles.map((c, i) => (
