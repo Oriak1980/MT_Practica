@@ -90,7 +90,7 @@ export default function Access() {
                     </Box>
                     <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} sx={{width:'100%'}}>
                         <IconButton onClick={()=>navigate('/login')} size="large" sx={{backgroundColor: '#D04234', color: '#ffffff', '&:hover':{backgroundColor: '#d3685e'}}}><ArrowBackRoundedIcon /></IconButton>
-                        <Button variant="contained" size="large" onClick={()=>navigate('/')} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '200px', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }} >Iniciar Sesión</Button>
+                        <Button variant="contained" size="large" onClick={()=>navigate('/home')} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '200px', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }} >Iniciar Sesión</Button>
                     </Box>
                 </Box>
             </Card>

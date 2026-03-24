@@ -9,16 +9,16 @@ import {
   IconButton,
   Box,
   Divider,
+  Typography,
 } from "@mui/material";
 import {
-  Menu as MenuIcon,
-  Close as CloseIcon,
-  Home as HomeIcon,
   Settings as SettingsIcon,
-  Logout as LogoutIcon,
   Info as InfoIcon,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -95,23 +95,21 @@ const SideMenu = () => {
     {
       id: "home",
       label: "Inicio",
-      icon: <HomeIcon />,
-      path: "/", // Ruta a navegar
-      action: null, // Si necesita acción especial en lugar de navegación
+      icon: <HomeRoundedIcon />,
+      path: "/home", // Ruta a navegar
     },
     {
       id: "settings",
       label: "Configuración",
       icon: <SettingsIcon />,
       path: "/settings",
-      action: null,
     },
     {
       id: "info",
       label: "Información",
       icon: <InfoIcon />,
       path: "/info",
-      action: null,
+
     },
   ];
 
@@ -122,23 +120,26 @@ const SideMenu = () => {
     <>
       {/* ========== BOTÓN HAMBURGUESA ========== */}
       {/* Botón flotante para abrir el menú */}
-      <IconButton
-        onClick={toggleMenu}
-        sx={{
-          position: "fixed",
-          // TODO: Ajusta estos valores según tu layout
-          top: 16,
-          left: 16,
-          zIndex: 1300,
-          backgroundColor: "primary.main",
-          color: "white",
-          "&:hover": {
-            backgroundColor: "primary.dark",
-          },
-        }}
-      >
-        {isOpen ? <CloseIcon /> : <MenuIcon />}
-      </IconButton>
+
+      {!isOpen && (
+        <IconButton
+          onClick={toggleMenu}
+          size="large"
+          sx={{
+            position: "fixed",
+            // TODO: Ajusta estos valores según tu layout
+            top: 16,
+            left: 16,
+            zIndex: 1300,
+            color: "white",
+            "&:hover": {
+              backgroundColor: "#00000040",
+            },
+          }}
+        >
+          <MenuRoundedIcon fontSize='large' sx={{color:'#D04234'}}/>
+        </IconButton>
+      )}
 
       {/* ========== DRAWER (MENÚ LATERAL) ========== */}
       {/* Componente que dibuja el menú lateral */}
@@ -149,8 +150,8 @@ const SideMenu = () => {
         sx={{
           // TODO: Personaliza los estilos del drawer
           "& .MuiDrawer-paper": {
-            width: 280, // TODO: Ajusta el ancho del menú
-            backgroundColor: "background.paper",
+            width: 240, // TODO: Ajusta el ancho del menú
+            backgroundColor: "#D04234",
             boxShadow: 2,
           },
         }}
@@ -166,9 +167,8 @@ const SideMenu = () => {
         >
           {/* ========== ENCABEZADO DEL MENÚ ========== */}
           {/* TODO: Personaliza este encabezado */}
-          <Box sx={{ marginBottom: 2 }}>
-            <h2 style={{ margin: 0 }}>Menú</h2>
-            <Divider sx={{ marginTop: 1 }} />
+          <Box sx={{ marginBottom: 1, display:'flex', justifyContent:'center' }}>
+            <Typography variant="h5" fontWeight={'bold'} fontFamily={'system-ui'} sx={{color:'#FFFFFFFF'}}>Menú</Typography> 
           </Box>
 
           {/* ========== LISTA DE ELEMENTOS ========== */}
@@ -178,35 +178,27 @@ const SideMenu = () => {
               <ListItem
                 key={item.id}
                 disablePadding
-                sx={{
-                  marginBottom: 1,
-                  // TODO: Añade estilos personalizados aquí
-                }}
               >
                 <ListItemButton
                   onClick={() => {
-                    // Si tiene acción personalizada, ejecutarla
-                    // Si no, navegar
-                    if (item.action) {
-                      item.action();
-                    } else {
-                      handleNavigation(item.path);
-                    }
+                    // navegar
+                    handleNavigation(item.path);
                   }}
                   sx={{
-                    borderRadius: 1,
+                    borderRadius: 15,
+                    margin:0,
                     "&:hover": {
-                      backgroundColor: "action.hover",
+                      backgroundColor: "#ffffff85",
                     },
                   }}
                 >
                   {/* Icono del elemento */}
-                  <ListItemIcon sx={{ color: "primary.main" }}>
+                  <ListItemIcon sx={{ color: "white"}}>
                     {item.icon}
                   </ListItemIcon>
 
                   {/* Texto del elemento */}
-                  <ListItemText primary={item.label} />
+                  <ListItemText primary={item.label} sx={{fontFamily:'system-ui', fontWeight:'bold', color:'white'}}/>
                 </ListItemButton>
               </ListItem>
             ))}
@@ -221,15 +213,15 @@ const SideMenu = () => {
             <ListItemButton
               onClick={handleLogout}
               sx={{
-                borderRadius: 1,
-                color: "error.main",
+                borderRadius: 15,
+                color: "white",
                 "&:hover": {
-                  backgroundColor: "error.light",
+                  backgroundColor: "#ffffff85",
                 },
               }}
             >
-              <ListItemIcon sx={{ color: "error.main" }}>
-                <LogoutIcon />
+              <ListItemIcon sx={{ color: "white" }}>
+                <LogoutRoundedIcon />
               </ListItemIcon>
               <ListItemText primary="Cerrar Sesión" />
             </ListItemButton>

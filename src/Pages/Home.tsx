@@ -13,7 +13,6 @@ const Home = () => {
            COMPONENTE SIDEMENU
            ========================================== */}
       {/* Menú lateral desplegable con navegación */}
-      <SideMenu />
 
       {/* ==========================================
            CONTENIDO PRINCIPAL
