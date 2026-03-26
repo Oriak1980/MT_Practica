@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import Access from "./Pages/Access";
 import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
+import Wallet from "./Pages/Wallet";
 
 export const router = createBrowserRouter([
     {path:'/', element: <Welcome/>},
@@ -11,4 +12,5 @@ export const router = createBrowserRouter([
     {path:'/access', element: <Access/>},
     {path:'/home', element: <Home/>},
     {path:'/profile', element: <Profile/>},
+    {path: '/wallet', element: <Wallet/>}
 ])

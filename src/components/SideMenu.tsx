@@ -16,6 +16,7 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
+import WalletRoundedIcon from '@mui/icons-material/WalletRounded';
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -101,6 +102,12 @@ const SideMenu = () => {
       icon: <PersonRoundedIcon />,
       path: "/profile",
     },
+    {
+      id:'wallet',
+      label:'Wallet',
+      icon: <WalletRoundedIcon />,
+      path: '/wallet',
+    }
   ];
 
   // ==========================================
