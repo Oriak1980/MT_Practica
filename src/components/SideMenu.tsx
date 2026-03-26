@@ -11,14 +11,11 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
-import {
-  Settings as SettingsIcon,
-  Info as InfoIcon,
-} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -99,17 +96,10 @@ const SideMenu = () => {
       path: "/home", // Ruta a navegar
     },
     {
-      id: "settings",
-      label: "Configuración",
-      icon: <SettingsIcon />,
-      path: "/settings",
-    },
-    {
-      id: "info",
-      label: "Información",
-      icon: <InfoIcon />,
-      path: "/info",
-
+      id: "profile",
+      label: "Perfil",
+      icon: <PersonRoundedIcon />,
+      path: "/profile",
     },
   ];
 
@@ -121,16 +111,14 @@ const SideMenu = () => {
       {/* ========== BOTÓN HAMBURGUESA ========== */}
       {/* Botón flotante para abrir el menú */}
 
-      {!isOpen && (
         <IconButton
           onClick={toggleMenu}
-          size="large"
+          size="medium"
           sx={{
-            position: "fixed",
-            // TODO: Ajusta estos valores según tu layout
-            top: 16,
-            left: 16,
+            width: 55,
+            height: 55,
             zIndex: 1300,
+            p:0.5,
             color: "white",
             "&:hover": {
               backgroundColor: "#00000040",
@@ -139,7 +127,7 @@ const SideMenu = () => {
         >
           <MenuRoundedIcon fontSize='large' sx={{color:'#D04234'}}/>
         </IconButton>
-      )}
+      
 
       {/* ========== DRAWER (MENÚ LATERAL) ========== */}
       {/* Componente que dibuja el menú lateral */}

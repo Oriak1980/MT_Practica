@@ -1,4 +1,4 @@
-import { Outlet, replace, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { isSessionActive } from "../security/session";
 import { onSessionExpired } from "../security/SessionTime";
 import Swal from "sweetalert2";

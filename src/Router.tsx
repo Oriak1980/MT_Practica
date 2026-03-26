@@ -3,10 +3,12 @@ import Welcome from "./Pages/Welcome";
 import Login from "./Pages/Login";
 import Access from "./Pages/Access";
 import Home from "./Pages/Home";
+import Profile from "./Pages/Profile";
 
 export const router = createBrowserRouter([
     {path:'/', element: <Welcome/>},
     {path:'/login', element: <Login/>},
     {path:'/access', element: <Access/>},
     {path:'/home', element: <Home/>},
+    {path:'/profile', element: <Profile/>},
 ])
