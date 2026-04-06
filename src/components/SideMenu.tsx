@@ -17,6 +17,7 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import WalletRoundedIcon from '@mui/icons-material/WalletRounded';
+import HistoryRoundedIcon from '@mui/icons-material/HistoryRounded';
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -107,6 +108,12 @@ const SideMenu = () => {
       label:'Wallet',
       icon: <WalletRoundedIcon />,
       path: '/wallet',
+    },
+    {
+      id:'history',
+      label:'Historial',
+      icon: <HistoryRoundedIcon />,
+      path: '/history',
     }
   ];
 

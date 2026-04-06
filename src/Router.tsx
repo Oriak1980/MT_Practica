@@ -5,6 +5,7 @@ import Access from "./Pages/Access";
 import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import Wallet from "./Pages/Wallet";
+import History from "./Pages/History";
 
 export const router = createBrowserRouter([
     {path:'/', element: <Welcome/>},
@@ -12,5 +13,6 @@ export const router = createBrowserRouter([
     {path:'/access', element: <Access/>},
     {path:'/home', element: <Home/>},
     {path:'/profile', element: <Profile/>},
-    {path: '/wallet', element: <Wallet/>}
+    {path: '/wallet', element: <Wallet/>},  
+    {path:'/history', element: <History/>}
 ])
