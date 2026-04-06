@@ -1,0 +1,20 @@
+
+/* ===== DÍAS ===== */
+/* Día seleccionado */
+.MuiPickersDay-root.Mui-selected {
+  background-color: #D04234 !important;
+  color: #ffffff !important;
+}
+
+.MuiPickersDay-root.Mui-selected:hover {
+  background-color: #D04234 !important;
+}
+
+/* Día de hoy */
+.MuiPickersDay-today {
+  border-color: #D04234 !important;
+}
+
+.MuiPickersDay-root:hover {
+  background-color: rgba(208, 66, 52, 0.1) !important;
+}
