@@ -13,14 +13,8 @@ import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
 import Card from '@mui/material/Card';
 import Popover from '@mui/material/Popover';
-import Dialog from '@mui/material/Dialog';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded';
 
 dayjs.locale('es');
@@ -31,10 +25,12 @@ type DateRangeValue = [Dayjs | null, Dayjs | null];
 export default function DateRangePicker({
     onApply,
     onCancel,
+    onButtonLabelChange,
     value: valueProp,
 }: {
     onApply?: (range: DateRangeValue) => void;
     onCancel?: () => void;
+    onButtonLabelChange?: (label: string) => void;
     value?: DateRangeValue;
 }) {
     const [value, setValue] = React.useState<DateRangeValue>(() => valueProp ?? [null, null]);
@@ -133,6 +129,10 @@ export default function DateRangePicker({
 
         return 'Fecha';
     }, [value]);
+
+    React.useEffect(() => {
+        onButtonLabelChange?.(buttonLabel);
+    }, [buttonLabel, onButtonLabelChange]);
 
     return (
         <Box>
@@ -278,7 +278,7 @@ export default function DateRangePicker({
                                                                     {label}
                                                                 </Box>
                                                             ))}
-                                                            {weeksOfMonth(month).map((day, idx) => {
+                                                            {weeksOfMonth(month).map((day) => {
                                                                 const [start, end] = value;
                                                                 const isCurrentMonth = day.month() === month.month();
                                                                 const isStart = !!start && day.isSame(start, 'day');

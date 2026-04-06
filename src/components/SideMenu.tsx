@@ -18,6 +18,8 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import WalletRoundedIcon from '@mui/icons-material/WalletRounded';
 import HistoryRoundedIcon from '@mui/icons-material/HistoryRounded';
+import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
+import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -105,7 +107,7 @@ const SideMenu = () => {
     },
     {
       id:'wallet',
-      label:'Wallet',
+      label:'Cartera',
       icon: <WalletRoundedIcon />,
       path: '/wallet',
     },
@@ -114,6 +116,18 @@ const SideMenu = () => {
       label:'Historial',
       icon: <HistoryRoundedIcon />,
       path: '/history',
+    },
+    {
+      id:'notifications',
+      label:'Notificaciones',
+      icon: <NotificationsRoundedIcon/>,
+      path: '/notification',
+    },
+    {
+      id:'admin',
+      label: 'Administrador',
+      icon: <PeopleRoundedIcon/>,
+      path:'/admin',
     }
   ];
 
