@@ -20,6 +20,7 @@ import WalletRoundedIcon from '@mui/icons-material/WalletRounded';
 import HistoryRoundedIcon from '@mui/icons-material/HistoryRounded';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
+import RequestQuoteRoundedIcon from '@mui/icons-material/RequestQuoteRounded';
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -128,7 +129,13 @@ const SideMenu = () => {
       label: 'Administrador',
       icon: <PeopleRoundedIcon/>,
       path:'/admin',
-    }
+    },
+    {
+      id:'comissions',
+      label: 'Comisiones',
+      icon: <RequestQuoteRoundedIcon/>,
+      path: '/comisiones'
+    },
   ];
 
   // ==========================================

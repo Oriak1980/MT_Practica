@@ -8,6 +8,7 @@ import Wallet from "./Pages/Wallet";
 import History from "./Pages/History";
 import Notification from "./Pages/Notification";
 import Admin from "./Pages/Admin";
+import Comisiones from "./Pages/Comisiones";
 
 export const router = createBrowserRouter([
     {path:'/', element: <Welcome/>},
@@ -19,4 +20,5 @@ export const router = createBrowserRouter([
     {path:'/history', element: <History/>},
     {path:'/notification', element: <Notification/>},
     {path:'/admin', element: <Admin/>},
+    {path:'/comisiones', element: <Comisiones/>},
 ])
