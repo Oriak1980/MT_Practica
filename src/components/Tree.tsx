@@ -72,8 +72,8 @@ const TreeNodeItem: React.FC<{
 
     return (
         <>
-            <ListItemButton selected={on} onClick={handleClick} sx={{ borderRadius: 1.5, px: 2, py: 1.3, my: 0.1, transition: 'all 0.2s ease', '&:hover': { backgroundColor: theme.palette.mode === 'light' ? '#256eff62' : '#5b94ff66' }, '&.Mui-selected': { backgroundColor: theme.palette.mode === 'light' ? '#D6E3FF' : '#274B99' }, '&.Mui-selected:hover': { backgroundColor: theme.palette.mode === 'light' ? '#C3D7FF' : '#3360CC' }, '@media (hover: none)': { '&:hover': { backgroundColor: 'transparent' }, '&.Mui-focusVisible': { backgroundColor: 'transparent', boxShadow: 'none' } } }}>
-                <ListItemText primary={node.label} primaryTypographyProps={{ sx: { fontWeight: 600, fontSize: '0.95rem', color: theme.palette.mode === 'light' ? '#5A5A5A ' : '#BFC8E0' } }} />
+            <ListItemButton selected={on} onClick={handleClick} sx={{ borderRadius: 1.5, px: 2, py: 1.3, my: 0.1, transition: 'all 0.2s ease' }}>
+                <ListItemText primary={node.label} primaryTypographyProps={{ sx: {fontFamily: 'system-ui', fontWeight: 'bold', color: '#000000', fontSize: 20} }} />
                 {node.children ? (isOpen ? <RemoveCircleOutlineRoundedIcon fontSize="small" sx={{ color: theme.palette.mode === 'light' ? '#3B7DFF ' : '#82ADFF' }} /> : <AddCircleOutlineRoundedIcon fontSize="small" sx={{ color: theme.palette.mode === 'light' ? '#3B7DFF ' : '#82ADFF' }} />) : isContentNode ? (isContentOpen ? <RemoveCircleOutlineRoundedIcon fontSize="small" sx={{ color: theme.palette.mode === 'light' ? '#3B7DFF ' : '#82ADFF' }} /> : <AddCircleOutlineRoundedIcon fontSize="small" sx={{ color: theme.palette.mode === 'light' ? '#3B7DFF ' : '#82ADFF' }} />) : null}
             </ListItemButton>
             {direction === 'column' && isContentNode && (
@@ -149,12 +149,12 @@ const UniversalTree: React.FC<UniversalTreeProps> = ({ data, direction = 'row' }
 
 
     return (
-        <Stack display='flex' gap={1} direction={direction} sx={{ my: 2, p: 2, borderRadius: 3, transition: 'all 0.3s ease', }}>
+        <Stack display='flex' gap={1} direction={direction} sx={{ my: 0, p: 2, borderRadius: 3, transition: 'all 0.3s ease', width: '100%' }}>
             {data.map((root) => {
                 const selectedChildId = selectedChildren[root.id] ?? null;
                 const openId = openNodeIds[root.id] ?? null;
                 return (
-                    <Paper key={root.id} elevation={3} sx={{ borderRadius: 1, p: 0, borderLeft: (theme) => `6px solid ${theme.palette.mode == 'light' ? '#3B7DFF ' : '#82ADFF'}`, }}>
+                    <Paper key={root.id} elevation={3} sx={{ borderRadius: 1, p: 0, }}>
                         <List sx={{ padding: 0.5 }}>
                             <TreeNodeItem
                                 node={root}

@@ -143,5 +143,22 @@ export const porductosFinacieros: comissionData[] = [
 ];
 
 export const productosCatalogo: comissionData[] = [
-
-]
+    { id: 1, label: 'Arabela', number: 5.00, image: '/ARABELA.png' },
+    { id: 2, label: 'Avon', number: 1.20, image: '/AVON.png' },
+    { id: 3, label: 'Elektra.com', number: 6.00, image: '/ELEKTRA.png' },
+    { id: 4, label: 'Fuller', number: 5.00, image: '/FULLER.png' },
+    { id: 5, label: 'Herbalife', number: 4.00, image: '/HERBALIFE.png' },
+    { id: 6, label: 'Ilusión', number: 4.00, image: '/ILUSION.png' },
+    { id: 7, label: 'Jafra', number: 1.20, image: '/JAFRA.png' },
+    { id: 8, label: 'LBEL Belcorp', number: 5.00, image: '/LBEL.png' },
+    { id: 9, label: 'Natura', number: 1.20, image: '/NATURA.png' },
+    { id: 10, label: 'NaturalBesa', number: 5.00, image: '/NATURALBESA.png' },
+    { id: 11, label: 'Oriflame', number: 5.00, image: '/ORIFLAME.png' },
+    { id: 12, label: 'Stanhome', number: 5.00, image: '/STANHOME.png' },
+    { id: 13, label: 'Swiss Just', number: 4.00, image: '/SWISSJUST.png' },
+    { id: 14, label: 'Terramar Brands', number: 5.00, image: '/TERRAMARBRANDS.png' },
+    { id: 15, label: 'Tupperware', number: 4.00, image: '/TUPPERWARE.png' },
+    { id: 16, label: 'Yanbal', number: 6.00, image: '/YANBAL.png' },
+    { id: 17, label: 'Yves Rocher', number: 5.00, image: '/YVESROCHER.png' },
+    { id: 18, label: 'Zermat', number: 5.00, image: '/ZERMAT.png' },
+];
