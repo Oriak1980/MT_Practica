@@ -86,7 +86,7 @@ export const tesoreria: comissionData[] = [
 ];
 export const giftCards: comissionData[] = [
     { id: 1, label: 'Amazon', number: 1.20, image: '/AMAZON.png' },
-    { id: 2, label: 'Anamex', number: 3.60, image: '/ANAMEX.png' },
+    { id: 2, label: 'Anamex', number: 3.60, image: '/ANEMEX.png' },
     { id: 3, label: 'Bitdefender', number: 6.00, image: '/BITDEFENDER.png' },
     { id: 4, label: 'Blizard', number: 2.40, image: '/BLIZZARD.png' },
     { id: 5, label: 'Cinemex', number: 3.60, image: '/CINEMEX.png' },
@@ -118,7 +118,7 @@ export const giftCards: comissionData[] = [
     { id: 31, label: 'Uber Eats', number: 3.00, image: '/UBEREATS.png' },
     { id: 32, label: 'Xbox', number: 7.00, image: '/XBOX.png' },
     { id: 33, label: 'Xbox Game Pass Core', number: 7.00, image: '/XBOXGAMEPASSCORE.png' },
-    { id: 34, label: 'Xbox Game Pass Ultimate', number: 3.60, image: '/XBOXGAMEPASSULTIMATE.png' },
+    { id: 34, label: 'Xbox Game Pass Ultimate', number: 3.60, image: '/XBOXGAMEPASS.png' },
 ];
 export const peaje: comissionData[] = [
     { id: 1, label: 'Omnibus de México', number: 0.00, image: '/OMNIBUSDEMEXICO.png' },
@@ -137,7 +137,7 @@ export const internet: comissionData[] = [
     { id: 8, label: 'Valor Internet Móvil', number: 7.00, image: '/VALORINTERNETMOVIL.png' },
 ];
 
-export const porductosFinacieros: comissionData[] = [
+export const productosFinacieros: comissionData[] = [
     { id: 1, label: 'Aportación SAR', number: 1.00, image: '/APORTACIONSAR.png' },
     { id: 2, label: 'Infonavit', number: 3.00, image: '/INFONAVIT.png' },
 ];

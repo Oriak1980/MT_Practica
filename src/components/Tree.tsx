@@ -10,8 +10,8 @@ import {
     useTheme,
     Paper,
 } from "@mui/material";
-import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
+import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 type TreeNode = {
     id: number;
@@ -72,13 +72,13 @@ const TreeNodeItem: React.FC<{
 
     return (
         <>
-            <ListItemButton selected={on} onClick={handleClick} sx={{ borderRadius: 1.5, px: 2, py: 1.3, my: 0.1, transition: 'all 0.2s ease' }}>
+            <ListItemButton selected={false} onClick={handleClick} sx={{ borderRadius: 1.5, px: 2, py: 1.3, my: 0.1, transition: 'all 0.2s ease' }}>
                 <ListItemText primary={node.label} primaryTypographyProps={{ sx: {fontFamily: 'system-ui', fontWeight: 'bold', color: '#000000', fontSize: 20} }} />
-                {node.children ? (isOpen ? <RemoveCircleOutlineRoundedIcon fontSize="small" sx={{ color: theme.palette.mode === 'light' ? '#3B7DFF ' : '#82ADFF' }} /> : <AddCircleOutlineRoundedIcon fontSize="small" sx={{ color: theme.palette.mode === 'light' ? '#3B7DFF ' : '#82ADFF' }} />) : isContentNode ? (isContentOpen ? <RemoveCircleOutlineRoundedIcon fontSize="small" sx={{ color: theme.palette.mode === 'light' ? '#3B7DFF ' : '#82ADFF' }} /> : <AddCircleOutlineRoundedIcon fontSize="small" sx={{ color: theme.palette.mode === 'light' ? '#3B7DFF ' : '#82ADFF' }} />) : null}
+                {node.children ? (isOpen ? <ExpandLessRoundedIcon fontSize="large" sx={{ color: '#000000'}} /> : <ExpandMoreRoundedIcon fontSize='large' sx={{ color: '#000000' }} />) : isContentNode ? (isContentOpen ? <ExpandLessRoundedIcon fontSize="large" sx={{ color: '#000000'}} /> : <ExpandMoreRoundedIcon fontSize="large" sx={{ color: '#000000'}} />) : null}
             </ListItemButton>
             {direction === 'column' && isContentNode && (
                 <Collapse in={isContentOpen} timeout="auto" unmountOnExit>
-                    <Box p={2} sx={{ pl: 2, py: 1, backgroundColor: theme.palette.mode === 'light' ? '#d3d6e28e' : '#d3d6e28e', borderRadius: 2 }}>
+                    <Box p={2} sx={{ pl: 2, py: 1,}}>
                         <Typography variant="body2" sx={{ lineHeight: 1.6, fontSize: '0.95rem', }}>
                             {node.content}
                         </Typography>
@@ -149,12 +149,12 @@ const UniversalTree: React.FC<UniversalTreeProps> = ({ data, direction = 'row' }
 
 
     return (
-        <Stack display='flex' gap={1} direction={direction} sx={{ my: 0, p: 2, borderRadius: 3, transition: 'all 0.3s ease', width: '100%' }}>
+        <Stack display='flex' gap={1} direction={direction} sx={{ my: 0, p: 1.5, borderRadius: 3, transition: 'all 0.3s ease', width: '100%', gap:3 }}>
             {data.map((root) => {
                 const selectedChildId = selectedChildren[root.id] ?? null;
                 const openId = openNodeIds[root.id] ?? null;
                 return (
-                    <Paper key={root.id} elevation={3} sx={{ borderRadius: 1, p: 0, }}>
+                    <Paper key={root.id} elevation={0} sx={{ borderRadius: 1, p: 0, backgroundColor: '#C29B33' }}>
                         <List sx={{ padding: 0.5 }}>
                             <TreeNodeItem
                                 node={root}
