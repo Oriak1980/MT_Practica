@@ -247,7 +247,6 @@ const SideMenu = () => {
           <Divider sx={{ marginY: 2, borderColor: '#ffffff' }} />
 
           {/* Botón de logout */}
-          <ModalChangeUser open={openModal} onClose={modalUserClose} />
           <ListItem disablePadding>
             <ListItemButton
               onClick={modalUserOpen}
@@ -284,7 +283,7 @@ const SideMenu = () => {
           </ListItem>
         </Box>
       </Drawer>
-
+      <ModalChangeUser open={openModal} onClose={modalUserClose} />
     </>
   );
 };
