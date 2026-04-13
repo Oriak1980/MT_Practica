@@ -23,6 +23,7 @@ import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
 import RequestQuoteRoundedIcon from '@mui/icons-material/RequestQuoteRounded';
 import SupervisorAccountRoundedIcon from '@mui/icons-material/SupervisorAccountRounded';
+import ModalChangeUser from "./ModalChangeUser";
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -38,12 +39,14 @@ import SupervisorAccountRoundedIcon from '@mui/icons-material/SupervisorAccountR
  * - Lista de elementos navegables comentada
  * - Estilos personalizables
  */
+
 const SideMenu = () => {
   // ==========================================
   // ESTADO
   // ==========================================
   // Estado para controlar si el menú está abierto o cerrado
   const [isOpen, setIsOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   // ==========================================
   // HOOKS
@@ -66,6 +69,14 @@ const SideMenu = () => {
    */
   const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  const modalUserOpen = () => {
+    setOpenModal(true);
+  };
+
+  const modalUserClose = () => {
+    setOpenModal(false);
   };
 
   /**
@@ -236,9 +247,10 @@ const SideMenu = () => {
           <Divider sx={{ marginY: 2, borderColor: '#ffffff' }} />
 
           {/* Botón de logout */}
+          <ModalChangeUser open={openModal} onClose={modalUserClose} />
           <ListItem disablePadding>
             <ListItemButton
-              onClick={handleLogout}
+              onClick={modalUserOpen}
               sx={{
                 borderRadius: 15,
                 color: "white",
@@ -272,6 +284,7 @@ const SideMenu = () => {
           </ListItem>
         </Box>
       </Drawer>
+
     </>
   );
 };

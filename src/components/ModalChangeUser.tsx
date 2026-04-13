@@ -14,7 +14,7 @@ export default function ModalChangeUser({ open, onClose }: Props) {
 
     return (
         <Modal open={open} onClose={onClose} sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#F2E3C9', alignItems: 'center', borderRadius: 8 }}>
-            <>
+            <Box>
                 <Box width={'100%'} display={'flex'} flexDirection={'row'} justifyContent={'center'} sx={{ backgroundColor: '#D04234', gap: 2 }}>
                     <Box display={'flex'} flexDirection={'column'} alignItems={'flex-start'}>
                         <Avatar alt="IconImage" sx={{ width: 30, height: 30, borderRadius: 8 }}>
@@ -26,7 +26,7 @@ export default function ModalChangeUser({ open, onClose }: Props) {
                         <Typography variant="h5" fontFamily={'system-ui'} color="#ffffff">Selecciona quien va a iniciar sesión en esta tienda.</Typography>
                     </Box>
                     <Box display={'flex'} flexDirection={'column'} alignItems={'flex-end'}>
-                        <IconButton variant={'surface'}>
+                        <IconButton variant={'surface'} onClick={onClose}>
                             <CloseRoundedIcon />
                         </IconButton>
                     </Box>
@@ -37,7 +37,7 @@ export default function ModalChangeUser({ open, onClose }: Props) {
                         <Typography variant='h6' fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Usuarios disponibles: 0</Typography>
                     </Avatar>
                 </Card>
-            </>
+            </Box>
         </Modal>
     )
 }
