@@ -9,16 +9,22 @@ import History from "./Pages/History";
 import Notification from "./Pages/Notification";
 import Admin from "./Pages/Admin";
 import Comisiones from "./Pages/Comisiones";
+import Terms from "./Pages/Terms";
+import Privacy from "./Pages/Privacy";
+import MenuVI from "./Pages/MenuVI";
 
 export const router = createBrowserRouter([
-    {path:'/', element: <Welcome/>},
-    {path:'/login', element: <Login/>},
-    {path:'/access', element: <Access/>},
-    {path:'/home', element: <Home/>},
-    {path:'/profile', element: <Profile/>},
-    {path: '/wallet', element: <Wallet/>},  
-    {path:'/history', element: <History/>},
-    {path:'/notification', element: <Notification/>},
-    {path:'/admin', element: <Admin/>},
-    {path:'/comisiones', element: <Comisiones/>},
+    { path: '/', element: <Welcome /> },
+    { path: '/login', element: <Login /> },
+    { path: '/access', element: <Access /> },
+    { path: '/home', element: <Home /> },
+    { path: '/menu-vi', element: <MenuVI /> },
+    { path: '/profile', element: <Profile /> },
+    { path: '/wallet', element: <Wallet /> },
+    { path: '/history', element: <History /> },
+    { path: '/notification', element: <Notification /> },
+    { path: '/admin', element: <Admin /> },
+    { path: '/comisiones', element: <Comisiones /> },
+    { path: '/terms', element: <Terms /> },
+    { path: '/privacy', element: <Privacy /> }
 ])

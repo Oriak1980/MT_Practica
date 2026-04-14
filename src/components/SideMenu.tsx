@@ -12,7 +12,7 @@ import {
   Typography,
   Avatar,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -241,6 +241,10 @@ const SideMenu = () => {
               </ListItem>
             ))}
           </List>
+          <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+            <Link to={'/terms'} ><Typography variant="subtitle2" fontFamily={'system-ui'} color="#ffffff" sx={{'&:hover':{borderBottom: '2px solid #ffffff', paddingBottom: '0.5px'}}} >Términos y condiciones</Typography></Link>
+            <Link to={'/privacy'}><Typography variant="subtitle2" fontFamily={'system-ui'} color="#ffffff" sx={{'&:hover':{borderBottom: '2px solid #ffffff', paddingBottom: '0.5px'}}}>Política de privacidad</Typography></Link>
+          </Box>
 
           {/* ========== SECCIÓN INFERIOR (LOGOUT) ========== */}
           {/* Separador antes de la sección inferior */}
