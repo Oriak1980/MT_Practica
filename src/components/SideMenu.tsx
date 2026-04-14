@@ -23,7 +23,7 @@ import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
 import RequestQuoteRoundedIcon from '@mui/icons-material/RequestQuoteRounded';
 import SupervisorAccountRoundedIcon from '@mui/icons-material/SupervisorAccountRounded';
-import ModalChangeUser from "./ModalChangeUser";
+import ModalMT from "./ModalMT";
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -287,7 +287,7 @@ const SideMenu = () => {
           </ListItem>
         </Box>
       </Drawer>
-      <ModalChangeUser open={openModal} onClose={modalUserClose} />
+      <ModalMT open={openModal} onClose={modalUserClose} />
     </>
   );
 };
