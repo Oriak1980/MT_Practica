@@ -12,6 +12,7 @@ import Comisiones from "./Pages/Comisiones";
 import Terms from "./Pages/Terms";
 import Privacy from "./Pages/Privacy";
 import MenuVI from "./Pages/MenuVI";
+import Inventory from "./Pages/Inventory";
 
 export const router = createBrowserRouter([
     { path: '/', element: <Welcome /> },
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
     { path: '/access', element: <Access /> },
     { path: '/home', element: <Home /> },
     { path: '/menu-vi', element: <MenuVI /> },
+    { path: '/inventory', element: <Inventory /> },
     { path: '/profile', element: <Profile /> },
     { path: '/wallet', element: <Wallet /> },
     { path: '/history', element: <History /> },

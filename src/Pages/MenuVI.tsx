@@ -3,11 +3,15 @@ import Header from "../components/Header";
 import MoneyCard from "../components/MoneyCard";
 import PointOfSaleRoundedIcon from '@mui/icons-material/PointOfSaleRounded';
 import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded';
+import { useState } from "react";
+import ModalMT from "../components/ModalMT";
 
 export default function MenuVI() {
 
+    const [modal, setModal] = useState(false);
+
     const cards = [
-        { label: 'Inventario', icon: <Inventory2RoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { } },
+        { label: 'Inventario', icon: <Inventory2RoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { setModal(true) } },
         { label: 'Venta', icon: <PointOfSaleRoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { } },
     ]
 
@@ -26,6 +30,7 @@ export default function MenuVI() {
                     ))}
                 </Box>
             </Box>
+            <ModalMT open={modal} onClose={() => setModal(false)}/>
         </>
     )
 }
