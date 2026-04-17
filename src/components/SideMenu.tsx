@@ -11,6 +11,7 @@ import {
   Divider,
   Typography,
   Avatar,
+  Card,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
@@ -24,6 +25,17 @@ import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
 import RequestQuoteRoundedIcon from '@mui/icons-material/RequestQuoteRounded';
 import SupervisorAccountRoundedIcon from '@mui/icons-material/SupervisorAccountRounded';
 import ModalMT from "./ModalMT";
+import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
+import SwitchAccountRoundedIcon from '@mui/icons-material/SwitchAccountRounded';
+
+const contentModal = [
+  <><Card variant="outlined" sx={{ mt: 2, display: 'flex', flexDirection: 'row', gap: 2, p: 1.5, borderRadius: 5, backgroundColor: 'rgba(255, 255, 255, 0.18)', justifyContent: 'center', mb: 2, width: '90%', alignItems: 'center', }}>
+    <Avatar alt="ImageIcon" sx={{ width: 40, height: 40, borderRadius: 2, backgroundColor: 'rgba(208, 66, 52, 0.18)' }}>
+      <GroupOutlinedIcon fontSize="medium" sx={{ color: '#D04234' }} />
+    </Avatar>
+    <Typography variant="h6" fontFamily={'system-ui'} fontSize={'bold'} color="#000000">Usuarios disponibles: 0</Typography>
+  </Card></>
+];
 
 // ==========================================
 // INTERFAZ DE PROPS (OPCIONAL)
@@ -242,8 +254,8 @@ const SideMenu = () => {
             ))}
           </List>
           <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
-            <Link to={'/terms'} ><Typography variant="subtitle2" fontFamily={'system-ui'} color="#ffffff" sx={{'&:hover':{borderBottom: '2px solid #ffffff', paddingBottom: '0.5px'}}} >Términos y condiciones</Typography></Link>
-            <Link to={'/privacy'}><Typography variant="subtitle2" fontFamily={'system-ui'} color="#ffffff" sx={{'&:hover':{borderBottom: '2px solid #ffffff', paddingBottom: '0.5px'}}}>Política de privacidad</Typography></Link>
+            <Link to={'/terms'} ><Typography variant="subtitle2" fontFamily={'system-ui'} color="#ffffff" sx={{ '&:hover': { borderBottom: '2px solid #ffffff', paddingBottom: '0.5px' } }} >Términos y condiciones</Typography></Link>
+            <Link to={'/privacy'}><Typography variant="subtitle2" fontFamily={'system-ui'} color="#ffffff" sx={{ '&:hover': { borderBottom: '2px solid #ffffff', paddingBottom: '0.5px' } }}>Política de privacidad</Typography></Link>
           </Box>
 
           {/* ========== SECCIÓN INFERIOR (LOGOUT) ========== */}
@@ -287,7 +299,7 @@ const SideMenu = () => {
           </ListItem>
         </Box>
       </Drawer>
-      <ModalMT open={openModal} onClose={modalUserClose} />
+      <ModalMT open={openModal} onClose={modalUserClose} title="Cambiar usuario" description="Selecciona quién va a iniciar sesión en esta tienda." content={contentModal} closeIcon={true} icon={<SwitchAccountRoundedIcon/>}/>
     </>
   );
 };

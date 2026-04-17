@@ -7,11 +7,33 @@ import ShoppingBagRoundedIcon from '@mui/icons-material/ShoppingBagRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import { testProducts } from "../data/productos";
+import { useState } from "react";
+import ModalMT from "./ModalMT";
 
 export default function Products() {
 
     const location = useLocation();
+    const [editModal, setEditModal] = useState(Boolean);
+    const [addModal, setAddModal] = useState(Boolean);
+    const [deleteModal, setDeleteModal] = useState(Boolean);
     const data = testProducts;
+    const contentModalEdit = [
+        <Card variant="outlined" sx={{mt: 2, display: 'flex', flexDirection: 'column', gap: 0.5, p: 1.5, borderRadius: 5, backgroundColor: 'rgba(255, 255, 255, 0.18)', justifyContent: 'center', mb: 2, width: '90%', alignItems: 'flex-start', }}>
+            <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Product Name</Typography>
+            <Typography variant="h6" fontFamily={'system-ui'} color="#000000">SKU: 0000</Typography>
+            <Typography variant="h6" fontFamily={'system-ui'} color="#000000">Código: 0000</Typography>
+        </Card>
+    ];
+
+    const handleCloseModal = () =>{
+        if (editModal === true) {
+            return setEditModal(false);
+        } else if (addModal === true){
+            return setAddModal(false);
+        } else if (deleteModal === true){
+            return setDeleteModal(false);
+        }
+    };
 
     return (
         <>
@@ -35,7 +57,7 @@ export default function Products() {
                                             <Chip label={`Compra: $${p.shop}`} icon={<ShoppingBagRoundedIcon sx={{ fontSize: 20, color: '#D04234' }} />} sx={{ backgroundColor: 'rgba(230, 147, 12, 0.18)', height: 40, width: 'auto', borderRadius: 8, '& .MuiChip-label': { color: '#e6920c', fontFamily: 'system-ui', fontWeight: 'bold', fontSize: 20, ml: 1 }, mt: 1.5, p: 1, '& .MuiChip-icon': { color: '#e6920c' } }} />
                                         </Box>
                                         <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'flex-end'} gap={3} width={'25%'}>
-                                            <Button variant="contained" size="large" startIcon={<EditRoundedIcon sx={{ fontSize: '15 px', color: '#ffffff' }} />} sx={{ backgroundColor: '#C29B33', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px', width: 146 }} >Editar</Button>
+                                            <Button variant="contained" size="large" onClick={() => setEditModal(true)} startIcon={<EditRoundedIcon sx={{ fontSize: '15 px', color: '#ffffff' }} />} sx={{ backgroundColor: '#C29B33', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px', width: 146 }} >Editar</Button>
                                             <Button variant="contained" size="large" startIcon={<DeleteRoundedIcon sx={{ fontSize: '15px' }} />} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }} >Eliminar</Button>
                                         </Box>
                                     </Box>
@@ -47,8 +69,8 @@ export default function Products() {
                 :
                 <>
                 </>
-
             }
+            <ModalMT open={editModal} onClose={handleCloseModal} title="Editar Producto" description="Actualiza la información del producto en el inventario." content={contentModalEdit} icon={<EditRoundedIcon sx={{color: '#ffffff'}} />} buttons={true} actionTitle="Guardar"/>
         </>
     )
 }

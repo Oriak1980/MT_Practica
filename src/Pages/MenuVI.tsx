@@ -5,15 +5,34 @@ import PointOfSaleRoundedIcon from '@mui/icons-material/PointOfSaleRounded';
 import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded';
 import { useState } from "react";
 import ModalMT from "../components/ModalMT";
+import { testStore } from "../data/sucursales";
+import { useNavigate } from "react-router-dom";
 
 export default function MenuVI() {
 
+    const navigate = useNavigate();
+    const dataStore = testStore;
+    const [active, setActive] = useState<number | null>(null);
     const [modal, setModal] = useState(false);
+
+    const handleActive = (index: number) => {
+        setActive(index);
+    };
+
+    const contentModal = [<>
+        {dataStore.map((c, i) => (
+            <Card key={i} variant="outlined" onClick={() => handleActive(i)} sx={{ mt: 1, display: 'flex', flexDirection: 'column', gap: 0.3, p: 1.5, borderRadius: 5, backgroundColor: active === i ? '#d041345b' : 'rgba(255, 255, 255, 0.18)', justifyContent: 'center', mb: 1, width: '90%', alignItems: 'flex-start', cursor: 'pointer', border: active === i ? 'solid 2px #D04234' : '' }}>
+                <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color={"#000000"}>{c.name}</Typography>
+                <Typography variant="h6" fontFamily={'system-ui'} fontWeight={'bold'} color={"#828287"}>{c.description}</Typography>
+                <Typography variant="h6" fontFamily={'system-ui'} fontWeight={'bold'} color={"#828287"}>{c.direction}</Typography>
+            </Card>
+        ))}</>
+    ]
 
     const cards = [
         { label: 'Inventario', icon: <Inventory2RoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { setModal(true) } },
         { label: 'Venta', icon: <PointOfSaleRoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { } },
-    ]
+    ];
 
     return (
         <>
@@ -30,7 +49,7 @@ export default function MenuVI() {
                     ))}
                 </Box>
             </Box>
-            <ModalMT open={modal} onClose={() => setModal(false)}/>
+            <ModalMT open={modal} onClose={() => setModal(false)} title="Selecciona la sucursal" description="Elige una sola tienda para modificar su inventario" content={contentModal} buttons={true} onClick={()=> navigate('/inventory')} actionDisable={active === null ? true : false} />
         </>
     )
 }
