@@ -90,12 +90,24 @@ export default function AddProduct() {
                         <Box display={'flex'} flexDirection={'row'} justifyContent={'center'} width={'100%'} mt={2} gap={2}>
                             <TextField variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
                         </Box>
-                        <Card variant="outlined" sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#d0413465', gap: 2, mt: 3, width: 1700, alignItems: 'center', borderRadius: 5, p:0.5 }}>
+                        <Card variant="outlined" sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#d0413465', gap: 2, mt: 3, width: 1700, alignItems: 'center', borderRadius: 5, p: 1.5 }}>
                             <Typography variant="h6" fontFamily={'system-ui'} fontWeight={'bold'} color="#D04234">Nota: los impuestos son fijos, no afecta al precio de tu producto</Typography>
-                            <Box display={'flex'} flexDirection={'row'} alignItems={'center'} width={'100%'}>
-                                
+                            <Box display={'flex'} flexDirection={'row'} alignItems={'center'} width={'100%'} justifyContent={'space-around'}>
+                                <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                                    <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">IVA</Typography>
+                                    <TextField value={16.00} variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                                </Box>
+                                <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                                    <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">IEPS</Typography>
+                                    <TextField value={0.00} variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                                </Box>
+                                <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                                    <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">ISR</Typography>
+                                    <TextField value={0.00} variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                                </Box>
                             </Box>
                         </Card>
+                        <Button variant="contained" size="large" sx={{ width: '90%', backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px', mt:3 }} >Guardar</Button>
                     </Box>}
             </Box>
         </>
