@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Card, Typography } from "@mui/material";
 import Header from "../components/Header";
 import { useLocation, useNavigate } from "react-router-dom";
-import { act, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MoneyCard from "../components/MoneyCard";
 import Products from "../components/Products";
 import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded';

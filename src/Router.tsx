@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import Welcome from "./Pages/Welcome";
 import Login from "./Pages/Login";
 import Access from "./Pages/Access";
@@ -15,7 +15,7 @@ import MenuVI from "./Pages/MenuVI";
 import Inventory from "./Pages/Inventory";
 import AddProduct from "./Pages/AddProduct";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
     { path: '/', element: <Welcome /> },
     { path: '/login', element: <Login /> },
     { path: '/access', element: <Access /> },
