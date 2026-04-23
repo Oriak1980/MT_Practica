@@ -1,8 +1,5 @@
-import { Avatar, Box, Button, Card, IconButton, Modal, Typography } from "@mui/material";
+import { Avatar, Box, Button, IconButton, Modal, Typography } from "@mui/material";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import { useLocation, useNavigate } from "react-router-dom";
-import { testStore } from "../data/sucursales";
-import React, { useState } from "react";
 import type { JSX } from "@emotion/react/jsx-runtime";
 
 type Props = {
@@ -60,7 +57,11 @@ export default function ModalMT({ open, onClose, icon = undefined, title, descri
                         }
                         <Box display="flex" flexDirection="column" alignItems="flex-start" sx={{ gap: 0.5 }}>
                             <Typography variant="h6" fontFamily="system-ui" color="#ffffff">{title}</Typography>
-                            <Typography variant="body2" fontFamily="system-ui" fontWeight="bold" color="#ffffff">{description}</Typography>
+                            {description !== undefined ? (
+                                <Typography variant="body2" fontFamily="system-ui" fontWeight="bold" color="#ffffff">
+                                    {description}
+                                </Typography>
+                            ) : null}
                         </Box>
                     </Box>
                     {closeIcon === true ? <Box display={'flex'} flexDirection={'column'} alignItems={'flex-end'}>

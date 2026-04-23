@@ -1,17 +1,65 @@
-import { Box, Button, Card, InputAdornment, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, InputAdornment, TextField, Typography, List, ListItemButton, ListItemText } from "@mui/material";
 import Header from "../components/Header";
 import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import CameraAltRoundedIcon from '@mui/icons-material/CameraAltRounded';
 import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import ModalMT from "../components/ModalMT";
 
 export default function AddProduct() {
 
     const [active, setActive] = useState('manual');
     const [values, setValues] = React.useState({ venta: '0', compra: '0' });
+    const [modal, setModal] = useState(Boolean);
+    const [selectedUnit, setSelectedUnit] = useState('');
+
+    const handleClose = () => setModal(false);
 
 
     const location = useLocation();
+    const units = [
+        'Pieza - Pza',
+        'Paquete - Paq',
+        'Botella - Bot',
+        'Lata - Lat',
+        'Bolsa - Bol',
+        'Caja - Cja',
+        'Frasco - Fra',
+        'Tarro - Tar',
+        'Tubo - Tub',
+        'Sobre - Sob',
+        'Barra - Bar',
+        'Rollo - Rol',
+        'Charola - Cha',
+        'Bote - Bot',
+        'Saco - Sac',
+        'Costal - Cos',
+        'Kilogramo - Kg',
+        'Gramo - G',
+        'Litro - L',
+        'Mililitro - Ml',
+        'Docena - Doc',
+        'Par - Par',
+        'Display - Dis',
+        'Paquete Multiple - Pack',
+    ];
+
+    const content = [
+        <>
+            <TextField placeholder="Buscar unidad de medida" variant="outlined" sx={{ mt: 3, width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#828287', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22px', opacity: 1, boxSizing: 'border-box' }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} slotProps={
+                { input: { startAdornment: (<InputAdornment position="start"><SearchRoundedIcon fontSize="medium" sx={{ color: '#828287', zIndex: 1 }} /></InputAdornment>) } }
+            } />
+            <List sx={{ width: '90%', maxHeight: '200px', overflowY: 'auto', mb: 3, mt: 3 }}>
+                {units.map((u, i) => (
+                    <ListItemButton onClick={() => { setSelectedUnit(u); handleClose(); }} key={i}>
+                        <ListItemText primary={u} />
+                    </ListItemButton>
+                ))}
+            </List>
+        </>
+    ]
 
     useEffect(() => {
         if (location.pathname === '/add-product') {
@@ -45,8 +93,68 @@ export default function AddProduct() {
                     </Card>
                 </Box>
                 {active === 'manual' ?
-                    <Box>
-
+                    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} width={1700} mt={3} mb={3}>
+                        <Box display={'flex'} flexDirection={'row'} justifyContent={'flex-start'} width={'100%'}>
+                            <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">SKU</Typography>
+                        </Box>
+                        <Box display={'flex'} flexDirection={'row'} justifyContent={'center'} width={'100%'} mt={2} gap={2}>
+                            <TextField placeholder="Ingresa al menos 3 caracteres" variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                        </Box>
+                        <Box display={'flex'} flexDirection={'row'} justifyContent={'flex-start'} width={'100%'} mt={3}>
+                            <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Imagen del producto</Typography>
+                        </Box>
+                        <Box display={'flex'} flexDirection={'column'} alignItems={'center'} width={'100%'} mt={2} gap={2}>
+                            <Card variant="outlined" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '90%', height: '200px', borderRadius: 9, p: 0.6, backgroundColor: '#F2E3C9', border: 'solid 2px #D04234', flexDirection: 'column', gap: 1 }}>
+                                <ImageRoundedIcon fontSize="large" sx={{ color: '#828287' }} />
+                                <Typography variant="h6" fontFamily={'system-ui'} fontWeight={'bold'} color="#828287">Agrega una imagen del producto</Typography>
+                            </Card>
+                            <Button variant="contained" size="large" sx={{ width: '90%', backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }} >Agregar Imagen</Button>
+                        </Box>
+                        <Box display={'flex'} flexDirection={'row'} justifyContent={'flex-start'} width={'100%'} mt={3}>
+                            <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Nombre del producto</Typography>
+                        </Box>
+                        <Box display={'flex'} flexDirection={'row'} justifyContent={'center'} width={'100%'} mt={2} gap={2}>
+                            <TextField variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                        </Box>
+                        <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} width={'100%'} mt={3} gap={2}>
+                            <Box display={'flex'} flexDirection={'column'} alignItems={'center'} width={'50%'} gap={1.5}>
+                                <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Precio de venta</Typography>
+                                <TextField value={formatCurrency(values.venta)} onChange={handleChange('venta')} inputMode="numeric" variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#828287', zIndex: 1, fontWeight: 'bold' }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} slotProps={{ input: { style: { textAlign: 'right' } } }} />
+                            </Box>
+                            <Box display={'flex'} flexDirection={'column'} alignItems={'center'} width={'50%'} gap={1.5}>
+                                <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Precio de compra</Typography>
+                                <TextField value={formatCurrency(values.compra)} onChange={handleChange('compra')} variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#828287', zIndex: 1, fontWeight: 'bold' }, '& input::placeholder': { color: '#000000', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} slotProps={{ input: { style: { textAlign: 'right' } } }} />
+                            </Box>
+                        </Box>
+                        <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} width={'100%'} mt={3} gap={2}>
+                            <Box display={'flex'} flexDirection={'column'} alignItems={'center'} width={'50%'} gap={1.5}>
+                                <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Cantidad</Typography>
+                                <TextField variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                            </Box>
+                            <Box display={'flex'} flexDirection={'column'} alignItems={'center'} width={'50%'} gap={1.5}>
+                                <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Unidades</Typography>
+                                <Button variant="contained" size="large" endIcon={<KeyboardArrowDownRoundedIcon sx={{ color: '#ffffff', fontSize: '15 px' }} />} onClick={() => setModal(true)} sx={{ width: '90%', backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px', mt: 0 }} >{selectedUnit || "Selecciona una opción"}</Button>
+                            </Box>
+                        </Box>
+                        <Card variant="outlined" sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#d0413465', gap: 2, mt: 3, width: 1700, alignItems: 'center', borderRadius: 5, p: 1.5 }}>
+                            <Typography variant="h6" fontFamily={'system-ui'} fontWeight={'bold'} color="#D04234">Nota: los impuestos son fijos, no afecta al precio de tu producto</Typography>
+                            <Box display={'flex'} flexDirection={'row'} alignItems={'center'} width={'100%'} justifyContent={'space-around'}>
+                                <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                                    <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">IVA</Typography>
+                                    <TextField value={16.00} variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                                </Box>
+                                <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                                    <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">IEPS</Typography>
+                                    <TextField value={0.00} variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                                </Box>
+                                <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                                    <Typography variant="h5" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">ISR</Typography>
+                                    <TextField value={0.00} variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: '4px 12px', height: '22px', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: '22 px', padding: '4px 12px', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+                                </Box>
+                            </Box>
+                        </Card>
+                        <Button variant="contained" size="large" sx={{ width: '90%', backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px', mt: 3 }} >Guardar</Button>
+                        <ModalMT open={modal} onClose={handleClose} title="Unidades" closeIcon={true} content={content} />
                     </Box>
                     :
                     <Box display={'flex'} flexDirection={'column'} alignItems={'center'} width={1700} mt={3} mb={3}>
@@ -107,7 +215,7 @@ export default function AddProduct() {
                                 </Box>
                             </Box>
                         </Card>
-                        <Button variant="contained" size="large" sx={{ width: '90%', backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px', mt:3 }} >Guardar</Button>
+                        <Button variant="contained" size="large" sx={{ width: '90%', backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px', mt: 3 }} >Guardar</Button>
                     </Box>}
             </Box>
         </>

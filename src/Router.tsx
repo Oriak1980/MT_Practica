@@ -14,6 +14,7 @@ import Privacy from "./Pages/Privacy";
 import MenuVI from "./Pages/MenuVI";
 import Inventory from "./Pages/Inventory";
 import AddProduct from "./Pages/AddProduct";
+import Ventas from "./Pages/Ventas";
 
 export const router = createHashRouter([
     { path: '/', element: <Welcome /> },
@@ -22,6 +23,8 @@ export const router = createHashRouter([
     { path: '/home', element: <Home /> },
     { path: '/menu-vi', element: <MenuVI /> },
     { path: '/inventory', element: <Inventory /> },
+    { path: '/add-product', element: <AddProduct /> },
+    { path: '/ventas', element: <Ventas /> },
     { path: '/profile', element: <Profile /> },
     { path: '/wallet', element: <Wallet /> },
     { path: '/history', element: <History /> },
@@ -30,5 +33,5 @@ export const router = createHashRouter([
     { path: '/comisiones', element: <Comisiones /> },
     { path: '/terms', element: <Terms /> },
     { path: '/privacy', element: <Privacy /> },
-    { path: '/add-product', element: <AddProduct /> }
+
 ])

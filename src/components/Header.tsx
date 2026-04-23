@@ -14,7 +14,7 @@ export default function Header() {
 
     return (
         <Card variant="outlined" sx={{ display: 'flex', flexDirection: 'row', p: 3, borderRadius: '0px 0px 50px 50px', backgroundColor: '#ffffff', position: 'sticky', top: 0, left: 0, width: '100%', zIndex: 130, justifyContent: 'space-between' }}>
-            {location.pathname === '/menu-vi' || location.pathname==='/inventory' || location.pathname === '/add-product' ?
+            {location.pathname === '/menu-vi' || location.pathname==='/inventory' || location.pathname === '/add-product' || location.pathname === '/ventas' ?
                 <IconButton
                     onClick={ handleBack }
                     size="medium"

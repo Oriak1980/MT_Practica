@@ -31,7 +31,7 @@ export default function MenuVI() {
 
     const cards = [
         { label: 'Inventario', icon: <Inventory2RoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { setModal(true) } },
-        { label: 'Venta', icon: <PointOfSaleRoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { } },
+        { label: 'Venta', icon: <PointOfSaleRoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { navigate('/ventas') } },
     ];
 
     return (
