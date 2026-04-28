@@ -1,4 +1,4 @@
-import { Box, Button, Card, Chip, Typography } from "@mui/material";
+import { Box, Button, Card, Chip, IconButton, TextField, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import QrCode2RoundedIcon from '@mui/icons-material/QrCode2Rounded';
 import FilterNoneRoundedIcon from '@mui/icons-material/FilterNoneRounded';
@@ -6,6 +6,8 @@ import SellRoundedIcon from '@mui/icons-material/SellRounded';
 import ShoppingBagRoundedIcon from '@mui/icons-material/ShoppingBagRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import { testProducts } from "../data/productos";
 import { useState } from "react";
 import ModalMT from "./ModalMT";
@@ -16,6 +18,8 @@ export default function Products() {
     const [editModal, setEditModal] = useState(Boolean);
     const [addModal, setAddModal] = useState(Boolean);
     const [deleteModal, setDeleteModal] = useState(Boolean);
+    const [quantityModal, setQuantityModal] = useState(Boolean);
+    const [selectedProductQuantity, setSelectedProductQuantity] = useState<typeof data[0] | null>(null);
     const data = testProducts;
     const contentModalEdit = [
         <Card variant="outlined" sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 0.5, p: 1.5, borderRadius: 5, backgroundColor: 'rgba(255, 255, 255, 0.18)', justifyContent: 'center', mb: 2, width: '90%', alignItems: 'flex-start', }}>
@@ -25,6 +29,22 @@ export default function Products() {
         </Card>
     ];
 
+    const contentModalQuantity = selectedProductQuantity ? [
+        <Box display={'flex'} flexDirection={'column'} gap={1.5} alignItems={'center'} width={'90%'} mt={3}>
+            <TextField variant="outlined" placeholder="Cantidad" typeof="number" sx={{ width: '100%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: 'auto', height: 'auto', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', height: 'auto', padding: 'auto', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }} />
+            <Box display={'flex'} flexDirection={"column"} gap={0.5} alignItems={'flex-start'} width={'100%'}>
+                <Typography variant="h6" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">Máximo disponible: {selectedProductQuantity.stock}</Typography>
+                <Typography variant="h6" fontFamily={'system-ui'} fontWeight={'bold'} color="#828287">Usa 0 para quitar del carrito</Typography>
+            </Box>
+        </Box>
+    ] : [];
+
+    const handleQuantityProduct = (product: typeof data[0]) => {
+        console.log('Producto seleccionado:', product);
+        setSelectedProductQuantity(product);
+        setQuantityModal(true);
+    };
+
     const handleCloseModal = () => {
         if (editModal === true) {
             return setEditModal(false);
@@ -32,6 +52,9 @@ export default function Products() {
             return setAddModal(false);
         } else if (deleteModal === true) {
             return setDeleteModal(false);
+        }
+        else if (quantityModal === true) {
+            return setQuantityModal(false);
         }
     };
 
@@ -80,8 +103,13 @@ export default function Products() {
                                             <Chip label={`SKU: ${p.SKU}`} icon={<SellRoundedIcon sx={{ fontSize: 20, color: '#D04234' }} />} sx={{ backgroundColor: 'rgba(208, 66, 52, 0.18)', height: 40, width: 'auto', borderRadius: 8, '& .MuiChip-label': { color: '#D04234', fontFamily: 'system-ui', fontWeight: 'bold', fontSize: 20, ml: 1 }, mt: 0.5, p: 1, '& .MuiChip-icon': { color: '#D04234' } }} />
                                             <Chip label={`Cantidad: ${p.stock}`} icon={<FilterNoneRoundedIcon sx={{ fontSize: 20, color: '#D04234' }} />} sx={{ backgroundColor: 'rgba(130, 130, 135, 0.18)', height: 40, width: 'auto', borderRadius: 8, '& .MuiChip-label': { color: '#828287', fontFamily: 'system-ui', fontWeight: 'bold', fontSize: 20, ml: 1 }, mt: 1.5, p: 1, '& .MuiChip-icon': { color: '#828287' } }} />
                                         </Box>
-                                        <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'flex-end'} gap={3} width={'25%'}>
-
+                                        <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} gap={3} width={'25%'}>
+                                            <Card variant="outlined" sx={{display:'flex', flexDirection:'row', justifyContent:'center', gap:0.5, backgroundColor:'rgba(130, 130 ,135 , 0.25)', p:1, borderRadius:8, alignItems:'center'}}>
+                                                <IconButton size="medium" sx={{backgroundColor:'rgba(208, 66, 52, 0.18)'}}><RemoveRoundedIcon sx={{color:'#D04234'}} /></IconButton>
+                                                <Typography variant="h6" fontSize={'bold'} fontFamily={'system-ui'} color="#000000">0</Typography>
+                                                <IconButton size="small" sx={{backgroundColor:'rgba(208, 66, 52, 0.18)'}} onClick={() => handleQuantityProduct(p)}><EditRoundedIcon sx={{color:'#D04234'}}/></IconButton>
+                                                <IconButton size="medium" sx={{backgroundColor:'rgba(208, 66, 52, 0.18)'}}><AddRoundedIcon sx={{color:'#D04234'}} /></IconButton>
+                                            </Card>
                                         </Box>
                                     </Box>
                                 </Box>
@@ -91,6 +119,7 @@ export default function Products() {
                 </>
             }
             <ModalMT open={editModal} onClose={handleCloseModal} title="Editar Producto" description="Actualiza la información del producto en el inventario." content={contentModalEdit} icon={<EditRoundedIcon sx={{ color: '#ffffff' }} />} buttons={true} actionTitle="Guardar" />
+            <ModalMT open={quantityModal} onClose={handleCloseModal} title={'Ingresa la cantidad'} description={`${selectedProductQuantity?.name}`} content={contentModalQuantity} buttons={true} actionTitle="Guardar"/>
         </>
     )
 }
