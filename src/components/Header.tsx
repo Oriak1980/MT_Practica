@@ -14,7 +14,7 @@ export default function Header() {
 
     return (
         <Card variant="outlined" sx={{ display: 'flex', flexDirection: 'row', p: 3, borderRadius: '0px 0px 50px 50px', backgroundColor: '#ffffff', position: 'sticky', top: 0, left: 0, width: '100%', zIndex: 130, justifyContent: 'space-between' }}>
-            {location.pathname === '/menu-vi' || location.pathname==='/inventory' || location.pathname === '/add-product' || location.pathname === '/ventas' ?
+            {location.pathname === '/menu-vi' || location.pathname==='/inventory' || location.pathname === '/add-product' || location.pathname === '/ventas' || location.pathname === '/recargas' || location.pathname === '/servicios' || location.pathname === '/tarjetas-regalo' || location.pathname === '/peaje' || location.pathname === '/internet' || location.pathname === '/tesoreria' || location.pathname === '/productos-financieros' || location.pathname === '/productos-catalogo' ?
                 <IconButton
                     onClick={ handleBack }
                     size="medium"

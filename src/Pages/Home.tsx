@@ -9,22 +9,22 @@ export default function Home() {
 
   const cards = [
     { label: 'Venta / Inventario', img: '/VentasInv.jpeg', action: () => { navigate('/menu-vi') } },
-    { label: 'Recargas', img: '/Recargas.png', action: () => { } },
-    { label: 'Servicios', img: '/Servicios.png', action: () => { } },
-    { label: 'Tarjetas de regalo', img: '/TarjetasRegalo.jpeg', action: () => { } },
-    { label: 'Peaje', img: '/Peaje.png', action: () => { } },
-    { label: 'Internet', img: '/Internet.png', action: () => { } },
-    { label: 'Tesoreria', img: '/tesoreria.png', action: () => { } },
-    { label: 'Productos Financieros', img: '/ProductosFin.png', action: () => { } },
-    { label: 'Productos Por Catalogo', img: '/ProductosCat.png', action: () => { } },
+    { label: 'Recargas', img: '/Recargas.png', action: () => { navigate('/recargas') } },
+    { label: 'Servicios', img: '/Servicios.png', action: () => { navigate('/servicios') } },
+    { label: 'Tarjetas de regalo', img: '/TarjetasRegalo.jpeg', action: () => { navigate('/tarjetas-regalo') } },
+    { label: 'Peaje', img: '/Peaje.png', action: () => { navigate('/peaje') } },
+    { label: 'Internet', img: '/Internet.png', action: () => { navigate('/internet') } },
+    { label: 'Tesoreria', img: '/tesoreria.png', action: () => { navigate('/tesoreria') } },
+    { label: 'Productos Financieros', img: '/ProductosFin.png', action: () => { navigate('/productos-financieros') } },
+    { label: 'Productos Por Catalogo', img: '/ProductosCat.png', action: () => { navigate('/productos-catalogo') } },
     { label: 'Depositos y Trasnferencias', img: '/DepositosTrans.jpeg', action: () => { } },
-  ]
+  ];
 
   return (
     <>
       <Header />
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
-        <MoneyCard/>
+        <MoneyCard />
         <Grid container spacing={3} columns={12} direction={'row'} sx={{ m: 3, }}>
           {cards.map((c, i) => (
             <Grid key={i} size={{ xs: 12, sm: 6, lg: 4 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>

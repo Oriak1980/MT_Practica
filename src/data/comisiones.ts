@@ -3,6 +3,7 @@ type comissionData = {
     label: string;
     number: number;
     image: string;
+    action?: () => void;
 };
 
 export const recargas: comissionData[] = [
