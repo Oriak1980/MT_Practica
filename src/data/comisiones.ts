@@ -6,6 +6,19 @@ type comissionData = {
     action?: () => void;
 };
 
+type mounts = {
+    label: string;
+    mount: number;
+}
+
+type services = {
+    service: comissionData['label'];
+    type: 'recargas' | 'servicios' | 'tarjetas-regalo' | 'peaje' | 'internet' | 'tesoreria' | 'productos-financieros' | 'productos-catalogo';
+    mounts?: mounts[];
+    referenceImage?: string;
+    helpText?: string;
+};
+
 export const recargas: comissionData[] = [
     { id: 1, label: 'AT-T', number: 3.60, image: '/AT&T.png' },
     { id: 1.1, label: 'AT-T Pospago', number: 3.30, image: '/AT&TPospago.png' },
@@ -162,4 +175,130 @@ export const productosCatalogo: comissionData[] = [
     { id: 16, label: 'Yanbal', number: 6.00, image: '/YANBAL.png' },
     { id: 17, label: 'Yves Rocher', number: 5.00, image: '/YVESROCHER.png' },
     { id: 18, label: 'Zermat', number: 5.00, image: '/ZERMAT.png' },
+];
+
+export const ATT: services[] = [
+    {
+        service: recargas[0].label,
+        type: 'recargas',
+        mounts: [
+            { label: 'Recarga $10', mount: 10 },
+            { label: 'Recarga $15', mount: 15 },
+            { label: 'Recarga $20', mount: 20 },
+            { label: 'Recarga: $30', mount: 30 },
+            { label: 'Recarga: $50', mount: 50 },
+            { label: 'Recarga: $70', mount: 70 },
+            { label: 'Recarga: $100', mount: 100 },
+            { label: 'Recarga: $150', mount: 150 },
+            { label: 'Recarga: $200', mount: 200 },
+            { label: 'Recarga: $300', mount: 300 },
+            { label: 'Recarga: $500', mount: 500 },
+        ],
+    }
+];
+
+export const Telcel: services[] = [
+    {
+        service: recargas[12].label,
+        type: 'recargas',
+        mounts: [
+            { label: 'Recarga $10', mount: 10 },
+            { label: 'Recarga $15', mount: 15 },
+            { label: 'Recarga $20', mount: 20 },
+            { label: 'Recarga: $30', mount: 30 },
+            { label: 'Recarga: $50', mount: 50 },
+            { label: 'Recarga: $70', mount: 70 },
+            { label: 'Recarga: $100', mount: 100 },
+            { label: 'Recarga: $150', mount: 150 },
+            { label: 'Recarga: $200', mount: 200 },
+            { label: 'Recarga: $300', mount: 300 },
+            { label: 'Recarga: $500', mount: 500 },
+        ]
+    }
+];
+
+export const ATTPospago: services[] = [
+    {
+        service: recargas[1].label,
+        type: 'recargas',
+        referenceImage: '/cat.jpeg',
+        helpText: 'Estimado cliente en caso de presentar algún inconveniente con su recarga, por favor comuníquese al número de atención a clientes de AT&T 800 101 4444 para que puedan brindarle la asistencia necesaria.'
+    }
+];
+
+export const Axtel: services[] = [
+    {
+        service: servicios[0].label,
+        type: 'servicios',
+        referenceImage: '/cat.jpeg',
+        helpText: 'Para cualquier duda con el pago de tu factura ASTEL favor de llamar al 800 515 1414. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
+    }
+];
+
+export const BlueTelecom: services[] = [
+    {
+        service: servicios[1].label,
+        type: 'servicios',
+        helpText: 'En caso de tener algun problema con tu pago, favor de comunicarse al Servico de Atención a Clientes de Blue Telecom al número 800 123 4567, para que puedan brindarte la asistencia necesaria. Conserva tu comprobante de pago.',
+    }
+];
+
+export const CFE: services[] = [
+    {
+        service: servicios[2].label,
+        type: 'servicios',
+        referenceImage: '/cat.jpeg',
+        helpText: 'Para cualquier duda o aclaración con el pago de tu recibo CFE favor de llamar al 071. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
+    }
+];
+
+export const AGUAKAN: services[] = [
+    {
+        service: tesoreria[0].label,
+        type: 'tesoreria',
+        referenceImage: ' cat.jpeg',
+        helpText: 'Para cualquier duda o aclaración con el pago de tu recibo AGUAKAN favor de llamar al 800 120 7777. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
+    }
+];
+
+export const AguasDeSaltillo: services[] = [
+    {
+        service: tesoreria[1].label,
+        type: 'tesoreria',
+        referenceImage: ' cat.jpeg',
+        helpText: 'Para cualquier duda o aclaración con el pago de tu recibo AGUAS DE SALTILLO favor de llamar al 800 500 9000. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
+    }
+];
+
+export const AMD: services[] = [
+    {
+        service: tesoreria[2].label,
+        type: 'tesoreria',
+        referenceImage: ' cat.jpeg',
+        helpText: 'Para cualquier duda o aclaración con el pago de tu recibo AMD favor de llamar al 800 123 4567. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
+    }
+];
+
+export const Amazon: services[] = [
+    {
+        service: giftCards[0].label,
+        type: 'tarjetas-regalo',
+        mounts: [
+            { label: 'Amazon $100', mount: 100 },
+            { label: 'Amazon $300', mount: 300 },
+            { label: 'Amazon $500', mount: 500 },
+            { label: 'Amazon $800', mount: 800 },
+            { label: 'Amazon $1000', mount: 1000 },
+        ]
+    }
+];
+
+export const Anamex: services[] = [
+    {
+        service: giftCards[1].label,
+        type: 'tarjetas-regalo',
+        mounts: [
+            {label: 'Plan Familiar', mount: 600},
+        ],
+    }
 ];
