@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, useTheme } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -7,6 +7,7 @@ export default function Welcome() {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const theme = useTheme();
 
     const handleLogin = () => {
         navigate('/login');
@@ -38,16 +39,33 @@ export default function Welcome() {
             minHeight: '100vh',
             width: '100%',
             backgroundColor: 'rgba(0,0,0,0.5)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: theme.spacing(2),
         }}>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Box component={'img'} src="/MiTienditaLogo.png" alt="Logo Mi Tiendita" sx={{width:'400px', height:'400px', mt:6}}/>
-            </Box>
-            <Box display={'flex'} justifyContent={'center'}>
-                <Typography variant="h1" color="#ffffff" fontFamily={'system-ui'} sx={{fontWeight:'bold', mt:6}}>Bienvenido A Mi Tiendita</Typography>
-            </Box>
-            <Box display={'flex'} justifyContent={'center'} sx={{mt:6}}>
-                <Button variant="contained" onClick={handleLogin} size="large" sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '200px', fontSize:'20px', fontWeight:'bold', borderRadius: '50px' }} >Continuar</Button>
-            </Box>
+            <Box component={'img'} src="/MiTienditaLogo.png" alt="Logo Mi Tiendita" sx={{
+                maxWidth: '400px',
+                width: '80%',
+                height: 'auto',
+                mb: 4
+            }}/>
+            <Typography variant="h1" color="#ffffff" fontFamily={'system-ui'} sx={{
+                fontWeight: 'bold',
+                fontSize: { xs: '2rem', sm: '3rem', md: '4rem' },
+                textAlign: 'center',
+                mb: 4
+            }}>Bienvenido A Mi Tiendita</Typography>
+            <Button variant="contained" onClick={handleLogin} size="large" sx={{
+                backgroundColor: '#D04234',
+                color: '#ffffff',
+                fontFamily: 'system-ui',
+                width: { xs: '100%', sm: '200px' },
+                fontSize: { xs: '16px', sm: '20px' },
+                fontWeight: 'bold',
+                borderRadius: '50px'
+            }}>Continuar</Button>
         </Box>
     )
 }

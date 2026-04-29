@@ -30,21 +30,21 @@ export default function MenuVI() {
     ]
 
     const cards = [
-        { label: 'Inventario', icon: <Inventory2RoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { setModal(true) } },
-        { label: 'Venta', icon: <PointOfSaleRoundedIcon sx={{ color: '#D04234', fontSize: 180 }} />, action: () => { navigate('/ventas') } },
+        { label: 'Inventario', icon: <Inventory2RoundedIcon sx={{ color: '#D04234', fontSize: { xs: 120, sm: 180 } }} />, action: () => { setModal(true) } },
+        { label: 'Venta', icon: <PointOfSaleRoundedIcon sx={{ color: '#D04234', fontSize: { xs: 120, sm: 180 } }} />, action: () => { navigate('/ventas') } },
     ];
 
     return (
         <>
             <Header />
-            <Box display={'flex'} alignItems={'center'} flexDirection={'column'}>
+            <Box display={'flex'} alignItems={'center'} flexDirection={'column'} sx={{ px: 2 }}>
                 <MoneyCard />
-                <Box display={'flex'} flexDirection={'column'} alignItems={'center'} mt={3} mb={3} gap={2} width={1700}>
+                <Box display={'flex'} flexDirection={'row'} flexWrap={'wrap'} justifyContent={'center'} gap={3} sx={{ mt: 3, mb: 3, maxWidth: '1700px', width: '100%' }}>
                     {cards.map((c, i) => (
-                        <Card key={i} variant="outlined" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3, p: 3, borderRadius: '9px', backgroundColor: '#ffffff', border: '3px solid #C29B33', width: '30%' }}>
+                        <Card key={i} variant="outlined" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3, p: { xs: 2, sm: 3 }, borderRadius: '9px', backgroundColor: '#ffffff', border: '3px solid #C29B33', width: { xs: '100%', sm: '45%', md: '30%' } }}>
                             {c.icon}
-                            <Typography variant="h4" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000">{c.label}</Typography>
-                            <Button variant="contained" size="large" onClick={c.action} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '100%', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }}>Comenzar</Button>
+                            <Typography variant="h4" fontFamily={'system-ui'} fontWeight={'bold'} color="#000000" sx={{ fontSize: { xs: '1.5rem', sm: '2.125rem' } }}>{c.label}</Typography>
+                            <Button variant="contained" size="large" onClick={c.action} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '100%', fontSize: { xs: '14px', sm: '15px' }, fontWeight: 'bold', borderRadius: '50px' }}>Comenzar</Button>
                         </Card>
                     ))}
                 </Box>

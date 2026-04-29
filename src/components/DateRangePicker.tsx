@@ -136,7 +136,7 @@ export default function DateRangePicker({
 
     return (
         <Box>
-            <Button variant="contained" startIcon={<CalendarTodayRoundedIcon sx={{color:'#D04234'}}/>} sx={{backgroundColor: '#ffffff', color: '#828287', fontFamily: 'system-ui', width: '700px', fontSize:'20px', fontWeight:'bold', borderRadius: '50px'}} onClick={(e) => setAnchorEl(e.currentTarget)}>
+            <Button variant="contained" startIcon={<CalendarTodayRoundedIcon sx={{color:'#D04234'}}/>} sx={{backgroundColor: '#ffffff', color: '#828287', fontFamily: 'system-ui', width: '100%', maxWidth: '700px', fontSize: { xs: '16px', sm: '20px' }, fontWeight:'bold', borderRadius: '50px'}} onClick={(e) => setAnchorEl(e.currentTarget)}>
                 {buttonLabel === 'Fecha' ? 'Filtrar por fecha (calendario)' : `Filtrar por fecha (${buttonLabel})`}
             </Button>
             {isMobile ? (

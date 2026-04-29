@@ -23,15 +23,15 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
+      <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'} sx={{ px: { xs: 2, sm: 3 } }}>
         <MoneyCard />
-        <Grid container spacing={3} columns={12} direction={'row'} sx={{ m: 3, }}>
+        <Grid container spacing={3} columns={12} direction={'row'} sx={{ m: { xs: 1, sm: 3 } }}>
           {cards.map((c, i) => (
             <Grid key={i} size={{ xs: 12, sm: 6, lg: 4 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>
-              <Card variant="outlined" sx={{ backgroundColor: '#ffffff', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 3, borderRadius: '9px', overflow: 'hidden', width: '70%' }}>
-                <Box component={'img'} src={c.img} alt='MainImage' sx={{ width: 'auto', height: 'auto', border: '2px solid #D04234', borderRadius: 8 }} />
-                <Typography variant="h5" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'}>{c.label}</Typography>
-                <Button variant="contained" size="large" onClick={c.action} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '100%', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }}>Comenzar</Button>
+              <Card variant="outlined" sx={{ backgroundColor: '#ffffff', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: { xs: 2, sm: 3 }, borderRadius: '9px', overflow: 'hidden', width: { xs: '100%', sm: '70%' } }}>
+                <Box component={'img'} src={c.img} alt='MainImage' sx={{ width: 'auto', height: 'auto', maxWidth: '100%', border: '2px solid #D04234', borderRadius: 8 }} />
+                <Typography variant="h5" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'} sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' }, textAlign: 'center' }}>{c.label}</Typography>
+                <Button variant="contained" size="large" onClick={c.action} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '100%', fontSize: { xs: '14px', sm: '15px' }, fontWeight: 'bold', borderRadius: '50px' }}>Comenzar</Button>
               </Card>
             </Grid>
           ))}
