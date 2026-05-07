@@ -1,10 +1,11 @@
 import { Box, Button, Card, Grid, InputAdornment, TextField, Typography } from "@mui/material";
 import Header from "../components/Header";
 import MoneyCard from "../components/MoneyCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { giftCards, internet, peaje, productosCatalogo, productosFinacieros, recargas, servicios, tesoreria } from "../data/comisiones";
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import { ServiceContext, ServiceProvider } from "../context/ServiceProvider";
 
 type mounts = {
     label: string;
@@ -22,17 +23,26 @@ export default function SelectService() {
     };
 
     type service = {
-    service: data['label'];
-    type: 'recargas' | 'servicios' | 'tarjetas-regalo' | 'peaje' | 'internet' | 'tesoreria' | 'productos-financieros' | 'productos-catalogo';
-    mounts?: mounts[];
-    referenceImage?: string;
-    helpText?: string;
-};
+        service: data['label'];
+        type: 'recargas' | 'servicios' | 'tarjetas-regalo' | 'peaje' | 'internet' | 'tesoreria' | 'productos-financieros' | 'productos-catalogo';
+        mounts?: mounts[];
+        referenceImage?: string;
+        helpText?: string;
+    };
 
     const [services, setServices] = useState<data[] | null>(null);
-    const [serv, setServ] = useState<service[] | null>(null); 
     const location = useLocation();
     const navigate = useNavigate();
+    const context = useContext(ServiceContext);
+
+    if (!context) return null;
+
+    const { setService } = context;
+
+    const handleNavigation = (d: data[] | null) => {
+        setService(d);
+        navigate('/service')
+    };
 
     useEffect(() => {
         if (location.pathname === '/recargas') {
@@ -61,20 +71,7 @@ export default function SelectService() {
         }
     }, [location]);
 
-    const handleNav = (s: service) => {
-        const look = services?.find(c => c.label === s.service);
-        if (look) {
-            setServ([s]);
-        };
 
-        if (s.type === 'recargas' || s.type === 'peaje' || s.type === 'tarjetas-regalo' || s.type === 'internet' || s.service === 'Pospago') {
-            return 'hola';
-        };
-        
-        if (s.type === 'productos-financieros' || s.type === 'productos-catalogo' || s.type === 'tesoreria') {
-            return 'mundo';
-        }
-    }
 
     return (
         <>
@@ -90,17 +87,19 @@ export default function SelectService() {
                         }}
                     />
                 </Box>
-                <Grid container spacing={3} columns={12} direction={'row'} sx={{ m: 3, }}>
-                    {services?.map((c, i) => (
-                        <Grid key={i} size={{ xs: 12, sm: 6, lg: 4 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>
-                            <Card variant="outlined" sx={{ backgroundColor: '#C29B33', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 3, borderRadius: '9px', overflow: 'hidden', width: '70%' }}>
-                                <Box component={'img'} src={c.image} alt='MainImage' sx={{ width: 'auto', height: 'auto', borderRadius: 50, backgroundColor: '#ffffff', }} />
-                                <Typography variant="h5" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'}>{c.label}</Typography>
-                                <Button variant="contained" size="large" sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '100%', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }}>Comenzar</Button>
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid>
+                <ServiceProvider>
+                    <Grid container spacing={3} columns={12} direction={'row'} sx={{ m: 3, }}>
+                        {services?.map((c, i) => (
+                            <Grid key={i} size={{ xs: 12, sm: 6, lg: 4 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                                <Card variant="outlined" sx={{ backgroundColor: '#C29B33', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 3, borderRadius: '9px', overflow: 'hidden', width: '70%' }}>
+                                    <Box component={'img'} src={c.image} alt='MainImage' sx={{ width: 'auto', height: 'auto', borderRadius: 50, backgroundColor: '#ffffff', }} />
+                                    <Typography variant="h5" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'}>{c.label}</Typography>
+                                    <Button variant="contained" size="large"  onClick={()=>handleNavigation} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '100%', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }}>Comenzar</Button>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </ServiceProvider>
             </Box>
         </>
     )

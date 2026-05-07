@@ -17,9 +17,11 @@ type data = {
 type serviceContext = {
     service: data[] | null;
     setService: React.Dispatch<React.SetStateAction<data[] | null>>;   
-}
+};
 
-const ServiceContext = createContext<serviceContext | null>(null);
+export const ServiceContext = createContext<serviceContext | null>(null);
+
+
 //     type service = {
 //     service: data['label'];
 //     type: 'recargas' | 'servicios' | 'tarjetas-regalo' | 'peaje' | 'internet' | 'tesoreria' | 'productos-financieros' | 'productos-catalogo';
@@ -28,7 +30,8 @@ const ServiceContext = createContext<serviceContext | null>(null);
 //     helpText?: string;
 // };
 
-export default function ServiceProvider({children}: {children: React.ReactNode}) {
+export const ServiceProvider = ({children}: {children: React.ReactNode}) => {
+    
 
     const [service, setService] = React.useState<data[] | null>(null);
 

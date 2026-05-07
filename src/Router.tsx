@@ -16,6 +16,7 @@ import Inventory from "./Pages/Inventory";
 import AddProduct from "./Pages/AddProduct";
 import Ventas from "./Pages/Ventas";
 import SelectService from "./Pages/SelectService";
+import ServiceAction from "./Pages/ServiceAction";
 
 export const router = createHashRouter([
     { path: '/', element: <Welcome /> },
@@ -42,4 +43,5 @@ export const router = createHashRouter([
     { path: '/tesoreria', element: <SelectService /> },
     { path: '/productos-financieros', element: <SelectService /> },
     { path: '/productos-catalogo', element: <SelectService /> },
+    { path: '/service' , element: <ServiceAction/>},
 ])
