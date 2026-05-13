@@ -110,7 +110,7 @@ export const giftCards: comissionData[] = [
     { id: 8, label: 'Cinépolis Dulcería', number: 3.60, image: '/CINEPOLISDULCERIA.png' },
     { id: 9, label: 'Cinépolis VIP', number: 3.60, image: '/CINEPOLISVIP.png' },
     { id: 10, label: 'CrunchyRoll', number: 6.00, image: '/CRUNCHYROLL.png' },
-    { id: 11, label: 'enviaflores.com', number: 4.80, image: '/ENVIAFLORESCOM.png' },
+    { id: 11, label: 'Enviaflores.com', number: 4.80, image: '/ENVIAFLORESCOM.png' },
     { id: 12, label: 'FacturaFiel,', number: 6.00, image: '/FACTURAFIEL.png' },
     { id: 13, label: 'Google Play', number: 1.20, image: '/GOOGLEPLAY.png' },
     { id: 14, label: 'Grupo Reforma', number: 3.60, image: '/REFORMA.png' },
@@ -178,139 +178,110 @@ export const productosCatalogo: comissionData[] = [
     { id: 18, label: 'Zermat', number: 5.00, image: '/ZERMAT.png' },
 ];
 
-export const ATT: services[] = [
-    {
-        service: recargas[0].label,
-        type: 'recargas',
-        image: recargas[0].image,
-        mounts: [
-            { label: 'Recarga $10', mount: 10 },
-            { label: 'Recarga $15', mount: 15 },
-            { label: 'Recarga $20', mount: 20 },
-            { label: 'Recarga: $30', mount: 30 },
-            { label: 'Recarga: $50', mount: 50 },
-            { label: 'Recarga: $70', mount: 70 },
-            { label: 'Recarga: $100', mount: 100 },
-            { label: 'Recarga: $150', mount: 150 },
-            { label: 'Recarga: $200', mount: 200 },
-            { label: 'Recarga: $300', mount: 300 },
-            { label: 'Recarga: $500', mount: 500 },
-        ],
-    }
-];
-
-export const Telcel: services[] = [
-    {
-        service: recargas[12].label,
-        type: 'recargas',
-        image: recargas[12].image,
-        mounts: [
-            { label: 'Recarga $10', mount: 10 },
-            { label: 'Recarga $15', mount: 15 },
-            { label: 'Recarga $20', mount: 20 },
-            { label: 'Recarga: $30', mount: 30 },
-            { label: 'Recarga: $50', mount: 50 },
-            { label: 'Recarga: $70', mount: 70 },
-            { label: 'Recarga: $100', mount: 100 },
-            { label: 'Recarga: $150', mount: 150 },
-            { label: 'Recarga: $200', mount: 200 },
-            { label: 'Recarga: $300', mount: 300 },
-            { label: 'Recarga: $500', mount: 500 },
-        ]
-    }
-];
-
-export const ATTPospago: services[] = [
-    {
-        service: recargas[1].label,
-        type: 'recargas',
-        image: recargas[1].image,
-        referenceImage: '/cat.jpeg',
-        helpText: 'Estimado cliente en caso de presentar algún inconveniente con su recarga, por favor comuníquese al número de atención a clientes de AT&T 800 101 4444 para que puedan brindarle la asistencia necesaria.'
-    }
-];
-
-export const Axtel: services[] = [
-    {
-        service: servicios[0].label,
-        type: 'servicios',
-        image: servicios[0].image,
-        referenceImage: '/cat.jpeg',
-        helpText: 'Para cualquier duda con el pago de tu factura ASTEL favor de llamar al 800 515 1414. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
-    }
-];
-
-export const BlueTelecom: services[] = [
-    {
-        service: servicios[1].label,
-        type: 'servicios',
-        image: servicios[1].image,
-        helpText: 'En caso de tener algun problema con tu pago, favor de comunicarse al Servico de Atención a Clientes de Blue Telecom al número 800 123 4567, para que puedan brindarte la asistencia necesaria. Conserva tu comprobante de pago.',
-    }
-];
-
-export const CFE: services[] = [
-    {
-        service: servicios[2].label,
-        type: 'servicios',
-        image: servicios[2].image,
-        referenceImage: '/cat.jpeg',
-        helpText: 'Para cualquier duda o aclaración con el pago de tu recibo CFE favor de llamar al 071. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
-    }
-];
-
-export const AGUAKAN: services[] = [
-    {
-        service: tesoreria[0].label,
-        type: 'tesoreria',
-        image: tesoreria[0].image,
-        referenceImage: ' cat.jpeg',
-        helpText: 'Para cualquier duda o aclaración con el pago de tu recibo AGUAKAN favor de llamar al 800 120 7777. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
-    }
-];
-
-export const AguasDeSaltillo: services[] = [
-    {
-        service: tesoreria[1].label,
-        type: 'tesoreria',
-        image: tesoreria[1].image,
-        referenceImage: ' cat.jpeg',
-        helpText: 'Para cualquier duda o aclaración con el pago de tu recibo AGUAS DE SALTILLO favor de llamar al 800 500 9000. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
-    }
-];
-
-export const AMD: services[] = [
-    {
-        service: tesoreria[2].label,
-        type: 'tesoreria',
-        image: tesoreria[2].image,
-        referenceImage: ' cat.jpeg',
-        helpText: 'Para cualquier duda o aclaración con el pago de tu recibo AMD favor de llamar al 800 123 4567. Conserva tu comprobante de pago. Tu pago se vera reflejado en un lapso de 24 horas habiles.',
-    }
-];
-
-export const Amazon: services[] = [
-    {
-        service: giftCards[0].label,
-        type: 'tarjetas-regalo',
-        image: giftCards[0].image,
-        mounts: [
-            { label: 'Amazon $100', mount: 100 },
-            { label: 'Amazon $300', mount: 300 },
-            { label: 'Amazon $500', mount: 500 },
-            { label: 'Amazon $800', mount: 800 },
-            { label: 'Amazon $1000', mount: 1000 },
-        ]
-    }
-];
-
-export const Anamex: services[] = [
-    {
-        service: giftCards[1].label,
-        type: 'tarjetas-regalo',
-        image: giftCards[1].image,
-        mounts: [
-            {label: 'Plan Familiar', mount: 600},
-        ],
-    }
+export const services: services[] = [
+    { service: recargas[0].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[0].image },
+    { service: recargas[1].label, type: 'recargas', referenceImage: '/cat.jpeg', image: recargas[1].image, helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: recargas[2].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[2].image },
+    { service: recargas[3].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[3].image },
+    { service: recargas[4].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[4].image },
+    { service: recargas[5].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[5].image },
+    { service: recargas[6].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[6].image },
+    { service: recargas[7].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[7].image },
+    { service: recargas[8].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[8].image },
+    { service: recargas[9].label, type: 'recargas', referenceImage: '/cat.jpeg', image: recargas[9].image, helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: recargas[10].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[10].image },
+    { service: recargas[11].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[11].image },
+    { service: recargas[12].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[12].image },
+    { service: recargas[13].label, type: 'recargas', referenceImage: '/cat.jpeg', image: recargas[13].image, helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: recargas[14].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[14].image },
+    { service: recargas[15].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[15].image },
+    { service: recargas[16].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[16].image },
+    { service: recargas[17].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[17].image },
+    { service: recargas[18].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[18].image },
+    { service: recargas[19].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[19].image },
+    { service: recargas[20].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[20].image },
+    { service: recargas[21].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[21].image },
+    { service: recargas[22].label, type: 'recargas', mounts: [{ label: '$10', mount: 10, }, { label: '$15', mount: 15 }, { label: '$20', mount: 20 }, { label: '$30', mount: 30 }, { label: '$50', mount: 50 }, { label: '$70', mount: 70 }, { label: '$100', mount: 100 }, { label: '$150', mount: 150 }, { label: '$200', mount: 200 }, { label: '$300', mount: 300 }, { label: '$500', mount: 500 }], image: recargas[22].image },
+    { service: servicios[0].label, type: 'servicios', image: servicios[0].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[1].label, type: 'servicios', image: servicios[1].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[2].label, type: 'servicios', image: servicios[2].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[3].label, type: 'servicios', image: servicios[3].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[4].label, type: 'servicios', image: servicios[4].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[5].label, type: 'servicios', image: servicios[5].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[6].label, type: 'servicios', image: servicios[6].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[7].label, type: 'servicios', image: servicios[7].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[8].label, type: 'servicios', image: servicios[8].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[9].label, type: 'servicios', image: servicios[9].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[10].label, type: 'servicios', image: servicios[10].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[11].label, type: 'servicios', image: servicios[11].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[12].label, type: 'servicios', image: servicios[12].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[13].label, type: 'servicios', image: servicios[13].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[14].label, type: 'servicios', image: servicios[14].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[15].label, type: 'servicios', image: servicios[15].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[16].label, type: 'servicios', image: servicios[16].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[17].label, type: 'servicios', image: servicios[17].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: servicios[18].label, type: 'servicios', image: servicios[18].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[0].label, type: 'tesoreria', image: tesoreria[0].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[1].label, type: 'tesoreria', image: tesoreria[1].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[2].label, type: 'tesoreria', image: tesoreria[2].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[3].label, type: 'tesoreria', image: tesoreria[3].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[4].label, type: 'tesoreria', image: tesoreria[4].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[5].label, type: 'tesoreria', image: tesoreria[5].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[6].label, type: 'tesoreria', image: tesoreria[6].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[7].label, type: 'tesoreria', image: tesoreria[7].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[8].label, type: 'tesoreria', image: tesoreria[8].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[9].label, type: 'tesoreria', image: tesoreria[9].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[10].label, type: 'tesoreria', image: tesoreria[10].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[11].label, type: 'tesoreria', image: tesoreria[11].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[12].label, type: 'tesoreria', image: tesoreria[12].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[13].label, type: 'tesoreria', image: tesoreria[13].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[14].label, type: 'tesoreria', image: tesoreria[14].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[15].label, type: 'tesoreria', image: tesoreria[15].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[16].label, type: 'tesoreria', image: tesoreria[16].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[17].label, type: 'tesoreria', image: tesoreria[17].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[18].label, type: 'tesoreria', image: tesoreria[18].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[19].label, type: 'tesoreria', image: tesoreria[19].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[20].label, type: 'tesoreria', image: tesoreria[20].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[21].label, type: 'tesoreria', image: tesoreria[21].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[22].label, type: 'tesoreria', image: tesoreria[22].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[23].label, type: 'tesoreria', image: tesoreria[23].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[24].label, type: 'tesoreria', image: tesoreria[24].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[25].label, type: 'tesoreria', image: tesoreria[25].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[26].label, type: 'tesoreria', image: tesoreria[26].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[27].label, type: 'tesoreria', image: tesoreria[27].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: tesoreria[28].label, type: 'tesoreria', image: tesoreria[28].image, referenceImage: '/cat.jpeg', helpText: 'Estimado cliente en caso de presentar algun incoveninte con tu pago de factura por favor comunicate al número de atención a clinetes *611 desde tu celular o al :800 33 0611 desde el interior de la republica. Conserva tu comprobante de pago' },
+    { service: giftCards[0].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[0].image },
+    { service: giftCards[1].label, type:'tarjetas-regalo', mounts: [{label:'Plan Familiar', mount:600}], image: giftCards[1].image },
+    { service: giftCards[2].label, type:'tarjetas-regalo', mounts: [{label: 'Bitdefender Internet Security 1 año', mount:249}], image: giftCards[2].image },
+    { service: giftCards[3].label, type:'tarjetas-regalo', mounts: [{label: 'Blizzard $150', mount:150}, {label: 'Blizzard $350', mount:350}], image: giftCards[3].image },
+    { service: giftCards[4].label, type:'tarjetas-regalo', mounts: [{label: 'Cinemex Tradicional 1 Boleto', mount:60}, {label:'Cinemex Tradicional 2 Boletos', mount:120}, {label:'Cinemex Tradicional 4 boletos', mount:240}], image: giftCards[4].image },
+    { service: giftCards[5].label, type:'tarjetas-regalo', mounts: [{label: 'Sala Premium 1 Boleto', mount:90}, {label: 'Sala Premium 2 Boletos', mount:180}], image: giftCards[5].image },
+    { service: giftCards[6].label, type:'tarjetas-regalo', mounts: [{label: 'Cinepolis Tradicional 2D-1 boleto (Lun-Dom)', mount:60}, {label: 'Combo Nachos (Nachos y Refresco Med)', mount:100}, {label:'Combo Hot Dog (Hot Dog y Refresco Med)', mount:100}, {label:'Cinepolis 3D - IMAX (1 boleto)', mount:105}], image: giftCards[6].image },
+    { service: giftCards[7].label, type:'tarjetas-regalo', mounts: [{label: 'Combo Nachos (Nachos y Refresco Med)', mount:100}, {label:'Combo Hot Dog (Hot Dog y Refresco Med)', mount:100}, {label:'Combo Palomitas (Palomitas Mantq y Refresco Gde)', mount:115}], image: giftCards[7].image },
+    { service: giftCards[8].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[8].image },
+    { service: giftCards[9].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[9].image },
+    { service: giftCards[10].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[10].image },
+    { service: giftCards[11].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[11].image },
+    { service: giftCards[12].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[12].image },
+    { service: giftCards[13].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[13].image },
+    { service: giftCards[14].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[14].image },
+    { service: giftCards[15].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[15].image },
+    { service: giftCards[16].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[16].image },
+    { service: giftCards[17].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[17].image },
+    { service: giftCards[18].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[18].image },
+    { service: giftCards[19].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[19].image },
+    { service: giftCards[20].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[20].image },
+    { service: giftCards[21].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[21].image },
+    { service: giftCards[22].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[22].image },
+    { service: giftCards[23].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[23].image },
+    { service: giftCards[24].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[24].image },
+    { service: giftCards[25].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[25].image },
+    { service: giftCards[26].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[26].image },
+    { service: giftCards[27].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[27].image },
+    { service: giftCards[28].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[28].image },
+    { service: giftCards[29].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[29].image },
+    { service: giftCards[30].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[30].image },
+    { service: giftCards[31].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[31].image },
+    { service: giftCards[32].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[32].image },
+    { service: giftCards[33].label, type:'tarjetas-regalo', mounts: [{label: 'Amazon $100', mount:100}, {label:'Amazon $300', mount:300}, {label: 'Amazon $500', mount:500}, {label:'Amazon $800', mount:800}, {label:'Amazon $1000', mount:1000}], image: giftCards[33].image },
 ];

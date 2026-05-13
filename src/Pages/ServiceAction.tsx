@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import Header from "../components/Header";
 import MoneyCard from "../components/MoneyCard";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ServiceContext, ServiceProvider } from "../context/ServiceProvider";
 
 type comissionData = {
@@ -35,11 +35,11 @@ export default function ServiceAction() {
         throw new Error('ServiceProvider problem')
     };
 
-    const {service} = context;
+    const { service } = context;
     console.log(service);
 
-    const handleRender = () => {
-        
+    if (service?.filter(s => s.label === 'ATT')) {
+        setRender('Recargas')
     };
 
     return (
