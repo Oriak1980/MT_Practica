@@ -5,15 +5,18 @@ import { RouterProvider } from 'react-router-dom'
 import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './styles/datepicker.css'
+import { ServiceProvider } from './context/ServiceProvider'
 
 const theme = createTheme();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <ChakraProvider value={defaultSystem}>
-        <RouterProvider router={router} />
-      </ChakraProvider>
-    </ThemeProvider>
+    <ServiceProvider>
+      <ThemeProvider theme={theme}>
+        <ChakraProvider value={defaultSystem}>
+          <RouterProvider router={router} />
+        </ChakraProvider>
+      </ThemeProvider>
+    </ServiceProvider>
   </StrictMode>,
 )

@@ -7,10 +7,6 @@ import { giftCards, internet, peaje, productosCatalogo, productosFinacieros, rec
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { ServiceContext, ServiceProvider } from "../context/ServiceProvider";
 
-type mounts = {
-    label: string;
-    mount: number;
-}
 
 export default function SelectService() {
 
@@ -20,29 +16,21 @@ export default function SelectService() {
         number: number;
         image: string;
         action?: () => void;
-    };
-
-    type service = {
-        service: data['label'];
-        type: 'recargas' | 'servicios' | 'tarjetas-regalo' | 'peaje' | 'internet' | 'tesoreria' | 'productos-financieros' | 'productos-catalogo';
-        mounts?: mounts[];
-        referenceImage?: string;
-        helpText?: string;
-    };
+    }
 
     const [services, setServices] = useState<data[] | null>(null);
     const location = useLocation();
-    const navigate = useNavigate();
     const context = useContext(ServiceContext);
-
-    if (!context) return null;
-
+    const navigate = useNavigate();
+    if (!context) {
+        throw new Error('ServiceContext no esta definido')
+    };
     const { setService } = context;
 
-    const handleNavigation = (d: data[] | null) => {
-        setService(d);
-        navigate('/service')
-    };
+    const handleNavigation = (u: data[] | null) => {
+        setService(u);
+        navigate('/service');
+    }
 
     useEffect(() => {
         if (location.pathname === '/recargas') {
@@ -71,36 +59,34 @@ export default function SelectService() {
         }
     }, [location]);
 
-
-
     return (
         <>
-            <Header />
-            <Box display={'flex'} alignItems={'center'} flexDirection={'column'} gap={3}>
-                <MoneyCard />
-                <Box display={'flex'} flexDirection={'row'} justifyContent={'center'} width={1700}>
-                    <TextField variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: 'auto', height: 'auto', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }}
-                        slotProps={{
-                            input: {
-                                startAdornment: (<InputAdornment position="start"><SearchRoundedIcon fontSize="medium" sx={{ color: '#828287', zIndex: 1 }} /></InputAdornment>)
-                            }
-                        }}
-                    />
-                </Box>
-                <ServiceProvider>
+            <ServiceProvider>
+                <Header />
+                <Box display={'flex'} alignItems={'center'} flexDirection={'column'} gap={3}>
+                    <MoneyCard />
+                    <Box display={'flex'} flexDirection={'row'} justifyContent={'center'} width={1700}>
+                        <TextField variant="outlined" sx={{ width: '90%', height: '49px', '& .MuiOutlinedInput-root': { height: '49px', '& fieldset': { borderColor: 'none', borderRadius: '30px', backgroundColor: '#ffffff', zIndex: 0 }, '& input': { padding: 'auto', height: 'auto', boxSizing: 'border-box', color: '#000000', zIndex: 1 }, '& input::placeholder': { color: '#828287', opacity: 1 }, '&.Mui-focused fieldset': { borderColor: '#D04234' } } }}
+                            slotProps={{
+                                input: {
+                                    startAdornment: (<InputAdornment position="start"><SearchRoundedIcon fontSize="medium" sx={{ color: '#828287', zIndex: 1 }} /></InputAdornment>)
+                                }
+                            }}
+                        />
+                    </Box>
                     <Grid container spacing={3} columns={12} direction={'row'} sx={{ m: 3, }}>
                         {services?.map((c, i) => (
                             <Grid key={i} size={{ xs: 12, sm: 6, lg: 4 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>
                                 <Card variant="outlined" sx={{ backgroundColor: '#C29B33', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, p: 3, borderRadius: '9px', overflow: 'hidden', width: '70%' }}>
                                     <Box component={'img'} src={c.image} alt='MainImage' sx={{ width: 'auto', height: 'auto', borderRadius: 50, backgroundColor: '#ffffff', }} />
                                     <Typography variant="h5" color="#000000" fontWeight={'bold'} fontFamily={'system-ui'}>{c.label}</Typography>
-                                    <Button variant="contained" size="large"  onClick={()=>handleNavigation} sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '100%', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }}>Comenzar</Button>
+                                    <Button variant="contained" onClick={() => handleNavigation(services.filter(f => f.id === c.id && f.image === c.image && f.label === c.label && f.number === c.number && f.action === c.action))} size="large" sx={{ backgroundColor: '#D04234', color: '#ffffff', fontFamily: 'system-ui', width: '100%', fontSize: '15px', fontWeight: 'bold', borderRadius: '50px' }}>Comenzar</Button>
                                 </Card>
                             </Grid>
                         ))}
                     </Grid>
-                </ServiceProvider>
-            </Box>
+                </Box>
+            </ServiceProvider>
         </>
     )
 }
